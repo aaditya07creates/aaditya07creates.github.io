@@ -48,12 +48,11 @@ print(f"Program RAM Usage: {ram_usage_gb:.2f} GB")
 
 Five divisibility
 If a number ends with 0 or 5, it is divisible by 5. We can use this logic to skip many checks and reduce our complexity even further.
-"
-code
 
+~~~
 if n % 10 in (0, 5):
     return False
-"
+~~~
 
 Redundant calculations
 Instead of iterating through known primes and checking each time if the prime's square is greater than the new number we can reverse it. Initially, on receiving the new number we can calculate its square root and simply check if the prime in our list is greater than the square root. As the numbers get bigger this optimization makes a huge difference.
