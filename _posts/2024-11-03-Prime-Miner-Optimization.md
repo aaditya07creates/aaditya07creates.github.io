@@ -52,6 +52,7 @@ If a number ends with 0 or 5, it is divisible by 5. We can use this logic to ski
 ~~~
 if n % 10 in (0, 5):
     return False
+    return False
 ~~~
 
 Redundant calculations
