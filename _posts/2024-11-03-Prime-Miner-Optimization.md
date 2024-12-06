@@ -57,3 +57,71 @@ if n % 10 in (0, 5):
 
 Redundant calculations
 Instead of iterating through known primes and checking each time if the prime's square is greater than the new number we can reverse it. Initially, on receiving the new number we can calculate its square root and simply check if the prime in our list is greater than the square root. As the numbers get bigger this optimization makes a huge difference.
+
+## Code
+
+{% highlight javascript linenos %}
+
+# importing libraries
+import math
+import os
+import time
+import psutil
+
+
+# function for clearing the screen
+
+def clear_screen():
+    os.system('cls')
+
+
+# function to check if the number is prime
+def is_prime(n, known_primes):
+
+    if n % 10 in (0, 5):
+        return False
+
+    sqrtn = math.sqrt(n)
+
+    for prime in known_primes:
+        if prime > sqrtn:
+            break
+        if n % prime == 0:
+            return False
+    return True
+
+
+# function to record and iterate numbers
+def find_primes():
+    largest_prime = 0
+    prime_count = 0
+    checked_count = 0
+    number = 7
+    known_primes = [2, 3, 5]
+    process = psutil.Process()
+
+    while True:
+        if is_prime(number, known_primes):
+            largest_prime = number
+            prime_count += 1
+            known_primes.append(number)
+
+
+        checked_count += 1
+
+        # print statements
+        if checked_count % 100000 == 0:
+            ram_usage_gb = process.memory_info().rss / (1024 ** 3)
+            clear_screen()
+            print(f"Highest Prime Found: {largest_prime}")
+            print(f"Checked Numbers: {checked_count}")
+            print(f"Prime Count: {prime_count}")
+            print(f"Program RAM Usage: {ram_usage_gb:.2f} GB")
+
+        number += 2
+
+
+
+start_time = time.time()
+find_primes()
+{% endhighlight %}

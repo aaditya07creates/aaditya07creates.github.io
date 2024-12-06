@@ -67,7 +67,7 @@ A macropad is a physical device with buttons that are mapped to some customizabl
 
 
 * **Some issues**\
-  The project didnt go very smooth, i encountered a few problems. On searching for the right library for the project, i came across the ESP32-BLE-Keyboard in github. The library didn't work at first, it turns out that it was using std::str in its code instead of String and substr instead of substring. So i edited the library and the program started working. To make sure you don't run into the same issues change the text i did in both BleKeyboard files inside the library folder with the help of notepad or some other text editor.
+  The project didnt go very smooth, I encountered a few problems. On searching for the right library for the project, I came across the ESP32-BLE-Keyboard in github. The library didn't work at first, it turns out that it was using std::str in its code instead of String and substr instead of substring. So I edited the library and the program started working. To make sure you don't run into the same issues change the text I did in both BleKeyboard files inside the library folder with the help of notepad or some other text editor.
 
 <br />
 
@@ -82,13 +82,9 @@ The device has so much room for improvement some of the features we can add to m
 * More inputs like potentiometer
 * Smaller size
 * Better buttons
+* custom pcb
 
 
-### Warning
-
-{: .box-warning}
-**Warning:**
-  I had to power the esp32 through the micro-usb port and not through the dedicated vin and gnd pins as one side of the board was cut off due to the size of the esp32 and the small breadboard. Some say this is not recommended and can damage it, so copy the method with caution.
 
 ## Code
 
@@ -184,5 +180,5 @@ void loop() {
 
 ## Conclusion
 
-This project was pretty fun to make, i can use it in my daily life. Macropads are usually very expensive from 30 to 100 dollars, so my friends are pretty jealous of me.
+This project was pretty fun to make, i can use it in my daily life. Macropads are usually very expensive from 30 to 100 dollars but my project costed only $5.48, so my friends are pretty jealous of me.
 
