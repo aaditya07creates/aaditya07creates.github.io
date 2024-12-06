@@ -99,8 +99,8 @@ The game is far from complete, you can add anything you want! Here are some of t
 #include <WiFi.h>
 #include <WebServer.h>
 
-const char* ssid = "Bhave_EXT";
-const char* password = "vaishu07";
+const char* ssid = "ssid here";
+const char* password = "password here";
 
 const int button1Pin = 12;  // Player 1 button
 const int button2Pin = 13;  // Player 2 button
