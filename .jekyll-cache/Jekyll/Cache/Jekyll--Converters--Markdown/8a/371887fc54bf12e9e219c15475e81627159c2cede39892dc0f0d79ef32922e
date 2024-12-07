@@ -1,0 +1,369 @@
+I"WM<p><br /></p>
+
+<h2 id="tug-of-war-game">Tug of war game</h2>
+<p>The tug of war game is a button dexterity game. A 2 player game with induidual controllers, that you can spectate through a web interface.
+<br /></p>
+
+<h2 id="overview-of-the-game">Overview of the game</h2>
+
+<p>The goal of the game is simple:</p>
+
+<ul>
+  <li>Player 1 and Player 2 each press their respective button to pull the bar towards their side.</li>
+  <li>Each button press moves the tug a little bit in the direction of the player’s side.</li>
+  <li>The game ends when one player reaches the end of their side, and a winner is declared.
+<br /></li>
+</ul>
+
+<h2 id="components-used">Components used</h2>
+
+<ul>
+  <li>ESP32 Microcontroller - This handles all the logic and connects the game to the web interface.</li>
+  <li>Two Push Buttons - These serve as the inputs for Player 1 and Player 2.</li>
+  <li>Web Interface - Displays the game’s status, tug position, and countdown timer.</li>
+  <li>3 Breadboards - To mount the esp32 and act as controllers.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="how-it-works">How it works</h2>
+<p><br /></p>
+<ul>
+  <li>
+    <p><strong>Wifi connection:</strong><br />
+The esp32 connects to a specified wifi network so that the game can be viewable from a browser. The wifi network can be changed at the start of the code.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;WiFi.h&gt;
+#include &lt;WebServer.h&gt;
+
+const char* ssid = "your ssid here (caps sensitive)";
+const char* password = "your password here";
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>
+    <p><strong>Web interface:</strong><br />
+The web interface displays the tug of war’s progress and results, it is designed with HTML, CSS and JavaScript. The website refreshes automatically to show a dynamic tug of war game that can be viewed on any device connected to the network. A simple web server is set up using the webserver library. It listens on port 80.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>WebServer server(80);
+
+server.on("/", []() {
+server.send(200, "text/html", index_html);
+});
+
+server.on("/status", []() {
+String json = "{\"tugPosition\":" + String(tugPosition) + ", \"message\":\"" + message + "\"}";
+server.send(200, "application/json", json);
+});
+
+</code></pre></div>    </div>
+    <p><br /></p>
+  </li>
+  <li>
+    <p><strong>Game logic:</strong><br />
+The esp32 checks the status of the buttons every 10ms, when the button is pressed the bar shifts indicating the player’s tugging towards a side. The tug’s position is displayed in real-time on the web interface with a refresh rate of 50ms. If one player reaches the extreme end of the bar, the game ends and the winner is displayed.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if (digitalRead(button1Pin) == LOW &amp;&amp; !button1Pressed) {
+tugPosition -= moveAmount;
+button1Pressed = true;
+delay(10);
+}
+</code></pre></div>    </div>
+    <p><br /></p>
+  </li>
+  <li>
+    <p><strong>Game reset:</strong><br />
+To start the game again, the players have to simply click on the “reset” button on the esp32.</p>
+  </li>
+</ul>
+
+<h2 id="features-to-add">Features to add</h2>
+
+<p>The game is far from complete, you can add anything you want! Here are some of the things that could make the game even better.</p>
+
+<ul>
+  <li>Game timer</li>
+  <li>Leaderboard system</li>
+  <li>Player colour customisation</li>
+  <li>Controller cases and components (like lights and buttons)</li>
+  <li>Multiplayer support</li>
+  <li>Better UI</li>
+  <li>Animations</li>
+  <li>Button press count</li>
+</ul>
+
+<h2 id="code">Code</h2>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+</pre></td><td class="code"><pre><span class="err">#</span><span class="nx">include</span> <span class="o">&lt;</span><span class="nx">WiFi</span><span class="p">.</span><span class="nx">h</span><span class="o">&gt;</span>
+<span class="err">#</span><span class="nx">include</span> <span class="o">&lt;</span><span class="nx">WebServer</span><span class="p">.</span><span class="nx">h</span><span class="o">&gt;</span>
+
+<span class="kd">const</span> <span class="nx">char</span><span class="o">*</span> <span class="nx">ssid</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">ssid here</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">char</span><span class="o">*</span> <span class="nx">password</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">password here</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">int</span> <span class="nx">button1Pin</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>  <span class="c1">// Player 1 button</span>
+<span class="kd">const</span> <span class="nx">int</span> <span class="nx">button2Pin</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>  <span class="c1">// Player 2 button</span>
+
+<span class="nx">int</span> <span class="nx">tugPosition</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">int</span> <span class="nx">winPosition</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">int</span> <span class="nx">moveAmount</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nx">bool</span> <span class="nx">button1Pressed</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="nx">bool</span> <span class="nx">button2Pressed</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+
+<span class="nx">WebServer</span> <span class="nf">server</span><span class="p">(</span><span class="mi">80</span><span class="p">);</span>
+
+<span class="nx">bool</span> <span class="nx">gameActive</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">char</span> <span class="nx">index_html</span><span class="p">[]</span> <span class="o">=</span> <span class="nx">R</span><span class="dl">"</span><span class="s2">rawliteral(
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;ESP32 Tug of War&lt;/title&gt;
+  &lt;style&gt;
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; display: flex; justify-content: center; align-items: center; font-family: Arial, sans-serif; background-color: #121212; color: #ffffff; }
+    #container { text-align: center; width: 90vw; max-width: 800px; }
+    h1 { font-size: 3vw; margin-bottom: 10px; }
+    p { font-size: 1.5vw; margin-bottom: 20px; }
+    #progress-container { width: 100%; height: 40px; background-color: #333; border-radius: 10px; position: relative; display: flex; border: 2px solid #666; }
+    #progress-bar-left { height: 100%; background-color: #ff5555; border-top-left-radius: 10px; border-bottom-left-radius: 10px; }
+    #progress-bar-right { height: 100%; background-color: #5555ff; border-top-right-radius: 10px; border-bottom-right-radius: 10px; }
+    #tugDisplay { font-size: 2vw; margin-top: 20px; }
+    #result { font-size: 2.5vw; color: #00ff00; }
+  &lt;/style&gt;
+  &lt;script&gt;
+    async function refreshTug() {
+      const response = await fetch('/status');
+      const data = await response.json();
+      const tugPosition = data.tugPosition;
+
+      // Update widths of red and blue sections based on tug position
+      document.getElementById('progress-bar-left').style.width = tugPosition + '%';
+      document.getElementById('progress-bar-right').style.width = (100 - tugPosition) + '%';
+
+      document.getElementById('tugDisplay').innerText = 'Tug Position: ' + tugPosition;
+      document.getElementById('result').innerText = data.message;
+    }
+    
+    window.onload = () =&gt; {
+      setInterval(refreshTug, 50);
+    };
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id=</span><span class="dl">"</span><span class="nx">container</span><span class="dl">"</span><span class="s2">&gt;
+    &lt;h1&gt;ESP32 Tug of War&lt;/h1&gt;
+    &lt;p&gt;Press your button to pull the tug toward your side!&lt;/p&gt;
+    &lt;div id=</span><span class="dl">"</span><span class="nx">progress</span><span class="o">-</span><span class="nx">container</span><span class="dl">"</span><span class="s2">&gt;
+      &lt;div id=</span><span class="dl">"</span><span class="nx">progress</span><span class="o">-</span><span class="nx">bar</span><span class="o">-</span><span class="nx">left</span><span class="dl">"</span><span class="s2">&gt;&lt;/div&gt;
+      &lt;div id=</span><span class="dl">"</span><span class="nx">progress</span><span class="o">-</span><span class="nx">bar</span><span class="o">-</span><span class="nx">right</span><span class="dl">"</span><span class="s2">&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div id=</span><span class="dl">"</span><span class="nx">tugDisplay</span><span class="dl">"</span><span class="s2">&gt;Tug Position: 50&lt;/div&gt;
+    &lt;div id=</span><span class="dl">"</span><span class="nx">result</span><span class="dl">"</span><span class="s2">&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+)rawliteral</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="k">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">Serial</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+
+  <span class="nf">pinMode</span><span class="p">(</span><span class="nx">button1Pin</span><span class="p">,</span> <span class="nx">INPUT_PULLUP</span><span class="p">);</span>
+  <span class="nf">pinMode</span><span class="p">(</span><span class="nx">button2Pin</span><span class="p">,</span> <span class="nx">INPUT_PULLUP</span><span class="p">);</span>
+
+  <span class="nx">WiFi</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="nx">ssid</span><span class="p">,</span> <span class="nx">password</span><span class="p">);</span>
+  <span class="k">while </span><span class="p">(</span><span class="nx">WiFi</span><span class="p">.</span><span class="nf">status</span><span class="p">()</span> <span class="o">!=</span> <span class="nx">WL_CONNECTED</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+    <span class="nx">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="dl">"</span><span class="s2">.</span><span class="dl">"</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="nx">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="dl">"</span><span class="se">\n</span><span class="s2">Connected to WiFi</span><span class="dl">"</span><span class="p">);</span>
+  <span class="nx">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="nx">WiFi</span><span class="p">.</span><span class="nf">localIP</span><span class="p">());</span>
+
+  <span class="nx">server</span><span class="p">.</span><span class="nf">on</span><span class="p">(</span><span class="dl">"</span><span class="s2">/</span><span class="dl">"</span><span class="p">,</span> <span class="p">[]()</span> <span class="p">{</span>
+    <span class="nx">server</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="dl">"</span><span class="s2">text/html</span><span class="dl">"</span><span class="p">,</span> <span class="nx">index_html</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">server</span><span class="p">.</span><span class="nf">on</span><span class="p">(</span><span class="dl">"</span><span class="s2">/status</span><span class="dl">"</span><span class="p">,</span> <span class="p">[]()</span> <span class="p">{</span>
+    <span class="nb">String</span> <span class="nx">message</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+    <span class="k">if </span><span class="p">(</span><span class="nx">tugPosition</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">message</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Player 1 Wins!</span><span class="dl">"</span><span class="p">;</span>
+      <span class="nx">gameActive</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if </span><span class="p">(</span><span class="nx">tugPosition</span> <span class="o">&gt;=</span> <span class="mi">100</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">message</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Player 2 Wins!</span><span class="dl">"</span><span class="p">;</span>
+      <span class="nx">gameActive</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">message</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Keep Tugging!</span><span class="dl">"</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nb">String</span> <span class="nx">json</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">{</span><span class="se">\"</span><span class="s2">tugPosition</span><span class="se">\"</span><span class="s2">:</span><span class="dl">"</span> <span class="o">+</span> <span class="nc">String</span><span class="p">(</span><span class="nx">tugPosition</span><span class="p">)</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">, </span><span class="se">\"</span><span class="s2">message</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">message</span> <span class="o">+</span> <span class="dl">"</span><span class="se">\"</span><span class="s2">}</span><span class="dl">"</span><span class="p">;</span>
+    <span class="nx">server</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span> <span class="nx">json</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">server</span><span class="p">.</span><span class="nf">begin</span><span class="p">();</span>
+  <span class="nx">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">Server started</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">server</span><span class="p">.</span><span class="nf">handleClient</span><span class="p">();</span>
+
+  <span class="c1">// Game logic to handle button presses only if game is active</span>
+  <span class="k">if </span><span class="p">(</span><span class="nx">gameActive</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if </span><span class="p">(</span><span class="nf">digitalRead</span><span class="p">(</span><span class="nx">button1Pin</span><span class="p">)</span> <span class="o">==</span> <span class="nx">LOW</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">button1Pressed</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">tugPosition</span> <span class="o">-=</span> <span class="nx">moveAmount</span><span class="p">;</span>
+      <span class="nx">tugPosition</span> <span class="o">=</span> <span class="nf">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">tugPosition</span><span class="p">);</span>
+      <span class="nx">button1Pressed</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+      <span class="nf">delay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if </span><span class="p">(</span><span class="nf">digitalRead</span><span class="p">(</span><span class="nx">button1Pin</span><span class="p">)</span> <span class="o">==</span> <span class="nx">HIGH</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">button1Pressed</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">if </span><span class="p">(</span><span class="nf">digitalRead</span><span class="p">(</span><span class="nx">button2Pin</span><span class="p">)</span> <span class="o">==</span> <span class="nx">LOW</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">button2Pressed</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">tugPosition</span> <span class="o">+=</span> <span class="nx">moveAmount</span><span class="p">;</span>
+      <span class="nx">tugPosition</span> <span class="o">=</span> <span class="nf">min</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="nx">tugPosition</span><span class="p">);</span>
+      <span class="nx">button2Pressed</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+      <span class="nf">delay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if </span><span class="p">(</span><span class="nf">digitalRead</span><span class="p">(</span><span class="nx">button2Pin</span><span class="p">)</span> <span class="o">==</span> <span class="nx">HIGH</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">button2Pressed</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>This game is really fun to play with friends. By incorporating physical buttons with a web interface, the tactile clicking experience is complemented by an awesome way to spectate the game. You can view the site on your smart TV, a laptop or even a mobile. The exciting thing is that you can customise it however you like!</p>
+
+:ET

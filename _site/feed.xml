@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    
+    <title>Aaditya&apos;s Space</title>
+    
+    
+    <description>This website is a virtual proof that I&apos;m awesome</description>
+    
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+      <item>
+        <title>optimized prime miner</title>
+        <description>
+          My Take on Optimization - 
+          optimized prime miner I used the Square Root Theorem for Primality Testing as the base program. It works by taking the new number’s square root and checking if prime numbers less than the root can divide it. If they cannot, it is prime. The program’s goal is to compute as...
+        </description>
+        <pubDate>Sun, 03 Nov 2024 00:00:00 -0500</pubDate>
+        <link>http://localhost:4000/2024-11-03-Prime-Miner-Optimization/</link>
+        <guid isPermaLink="true">http://localhost:4000/2024-11-03-Prime-Miner-Optimization/</guid>
+      </item>
+    
+      <item>
+        <title>Tug of war game</title>
+        <description>
+          A button dexterity game with esp32 - 
+          Tug of war game The tug of war game is a button dexterity game. A 2 player game with induidual controllers, that you can spectate through a web interface. Overview of the game The goal of the game is simple: Player 1 and Player 2 each press their respective button...
+        </description>
+        <pubDate>Thu, 10 Oct 2024 00:00:00 -0500</pubDate>
+        <link>http://localhost:4000/2024-10-10-Tug-of-war-game/</link>
+        <guid isPermaLink="true">http://localhost:4000/2024-10-10-Tug-of-war-game/</guid>
+      </item>
+    
+      <item>
+        <title>ESP32 macropad</title>
+        <description>
+          My own customisable bluetooth deck - 
+          ESP32 MACROPAD A macropad is a physical device with buttons that are mapped to some customizable functions. It is used to enhance productivity, for navigating software, playing games or all of these at once. I have made my own version of it using the blekeyboard library and the esp32. Components...
+        </description>
+        <pubDate>Fri, 13 Sep 2024 00:00:00 -0500</pubDate>
+        <link>http://localhost:4000/2024-09-13-esp32BT-macropad/</link>
+        <guid isPermaLink="true">http://localhost:4000/2024-09-13-esp32BT-macropad/</guid>
+      </item>
+    
+  </channel>
+</rss>

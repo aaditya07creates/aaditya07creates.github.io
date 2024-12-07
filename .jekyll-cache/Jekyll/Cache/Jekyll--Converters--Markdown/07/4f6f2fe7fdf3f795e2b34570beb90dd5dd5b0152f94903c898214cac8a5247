@@ -1,0 +1,3 @@
+I"W<h2 id="optimized-prime-miner">optimized prime miner</h2>
+<p>I used the Square Root Theorem for Primality Testing as the base program. It works by taking the new number’s square root and checking if prime numbers less than the root can divide it. If they cannot, it is prime. The program’s goal is to compute as many primes as it can.</p>
+:ET

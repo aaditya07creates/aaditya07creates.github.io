@@ -11,14 +11,14 @@
 
   
 
-  <title>About me | Aaditya's Space</title>
+  <title>Tag Index | Aaditya's Space</title>
 
   
   
   <meta name="author" content="Aaditya Bhave">
   
 
-  <meta name="description" content="I like StarWars">
+  <meta name="description" content="{% assign date_format = site.date_format | default: &quot;%B %-d, %Y&quot; %} {%- capture site_tags -%} {%- for tag in site.tags -%} {{- tag | first -}}{%- unless forloop.last -%},{%- endunless -%} {%- endfor -%} {%- endcapture -%} {%- assign tags_list = site_tags | split:&apos;,&apos; | sort -%} {%- for tag...">
 
   
 
@@ -81,8 +81,8 @@
 
   
   <meta property="og:site_name" content="Aaditya's Space">
-  <meta property="og:title" content="About me | Aaditya's Space">
-  <meta property="og:description" content="Why you&apos;d want to go on a date with me">
+  <meta property="og:title" content="Tag Index | Aaditya's Space">
+  <meta property="og:description" content="{% assign date_format = site.date_format | default: &quot;%B %-d, %Y&quot; %} {%- capture site_tags -%} {%- for tag in site.tags -%} {{- tag | first -}}{%- unless forloop.last -%},{%- endunless -%} {%- endfor -%} {%- endcapture -%} {%- assign tags_list = site_tags | split:&apos;,&apos; | sort -%} {%- for tag...">
 
   
   <meta property="og:image" content="http://localhost:4000/assets/img/avatar-icon.png">
@@ -90,8 +90,8 @@
 
   
   <meta property="og:type" content="website">
-  <meta property="og:url" content="http://localhost:4000/aboutme/">
-  <link rel="canonical" href="http://localhost:4000/aboutme/">
+  <meta property="og:url" content="http://localhost:4000/tags/">
+  <link rel="canonical" href="http://localhost:4000/tags/">
   
 
   
@@ -100,8 +100,8 @@
   <meta name="twitter:site" content="@">
   <meta name="twitter:creator" content="@">
 
-  <meta property="twitter:title" content="About me | Aaditya's Space">
-  <meta property="twitter:description" content="Why you&apos;d want to go on a date with me">
+  <meta property="twitter:title" content="Tag Index | Aaditya's Space">
+  <meta property="twitter:description" content="{% assign date_format = site.date_format | default: &quot;%B %-d, %Y&quot; %} {%- capture site_tags -%} {%- for tag in site.tags -%} {{- tag | first -}}{%- unless forloop.last -%},{%- endunless -%} {%- endfor -%} {%- endcapture -%} {%- assign tags_list = site_tags | split:&apos;,&apos; | sort -%} {%- for tag...">
 
   
   <meta name="twitter:image" content="http://localhost:4000/assets/img/avatar-icon.png">
@@ -185,12 +185,7 @@
     <div class="row">
       <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
         <div class="page-heading">
-          <h1>About me</h1>
-          
-            
-              <hr class="small">
-              <span class="page-subheading">I Like Monkeys</span>
-            
+          <h1>Tag Index</h1>
           
           
           
@@ -212,18 +207,57 @@
     <div class=" col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 ">
       
 
-      <p>My name is Aaditya Bhave. I have the following qualities:</p>
-
-<ul>
-  <li>I Like Monkeys</li>
-  <li>I’m extremely loyal to my family</li>
-</ul>
-
-<p>What else do you need?</p>
-
-<h3 id="my-story">My story</h3>
-
-<p>To be honest, I’m having some trouble remembering right now!</p>
+      <a href="#DSA" class="btn btn-primary tag-btn"><i class="fas fa-tag" aria-hidden="true"></i>&nbsp;DSA&nbsp;(1)</a><a href="#buttons" class="btn btn-primary tag-btn"><i class="fas fa-tag" aria-hidden="true"></i>&nbsp;buttons&nbsp;(1)</a><a href="#esp32" class="btn btn-primary tag-btn"><i class="fas fa-tag" aria-hidden="true"></i>&nbsp;esp32&nbsp;(2)</a><a href="#optimization" class="btn btn-primary tag-btn"><i class="fas fa-tag" aria-hidden="true"></i>&nbsp;optimization&nbsp;(1)</a><a href="#webserver" class="btn btn-primary tag-btn"><i class="fas fa-tag" aria-hidden="true"></i>&nbsp;webserver&nbsp;(1)</a><div id="full-tags-list"><h2 id="DSA" class="linked-section">
+        <i class="fas fa-tag" aria-hidden="true"></i>
+        &nbsp;DSA&nbsp;(1)
+    </h2>
+    <div class="post-list"><div class="tag-entry">
+                <a href="/2024-11-03-Prime-Miner-Optimization/">optimized prime miner</a>
+                <div class="entry-date">
+                    <time datetime="2024-11-03T00:00:00-05:00">November 3, 2024</time>
+                </div>
+            </div></div><h2 id="buttons" class="linked-section">
+        <i class="fas fa-tag" aria-hidden="true"></i>
+        &nbsp;buttons&nbsp;(1)
+    </h2>
+    <div class="post-list"><div class="tag-entry">
+                <a href="/2024-09-13-esp32BT-macropad/">ESP32 macropad</a>
+                <div class="entry-date">
+                    <time datetime="2024-09-13T00:00:00-05:00">September 13, 2024</time>
+                </div>
+            </div></div><h2 id="esp32" class="linked-section">
+        <i class="fas fa-tag" aria-hidden="true"></i>
+        &nbsp;esp32&nbsp;(2)
+    </h2>
+    <div class="post-list"><div class="tag-entry">
+                <a href="/2024-10-10-Tug-of-war-game/">Tug of war game</a>
+                <div class="entry-date">
+                    <time datetime="2024-10-10T00:00:00-05:00">October 10, 2024</time>
+                </div>
+            </div><div class="tag-entry">
+                <a href="/2024-09-13-esp32BT-macropad/">ESP32 macropad</a>
+                <div class="entry-date">
+                    <time datetime="2024-09-13T00:00:00-05:00">September 13, 2024</time>
+                </div>
+            </div></div><h2 id="optimization" class="linked-section">
+        <i class="fas fa-tag" aria-hidden="true"></i>
+        &nbsp;optimization&nbsp;(1)
+    </h2>
+    <div class="post-list"><div class="tag-entry">
+                <a href="/2024-11-03-Prime-Miner-Optimization/">optimized prime miner</a>
+                <div class="entry-date">
+                    <time datetime="2024-11-03T00:00:00-05:00">November 3, 2024</time>
+                </div>
+            </div></div><h2 id="webserver" class="linked-section">
+        <i class="fas fa-tag" aria-hidden="true"></i>
+        &nbsp;webserver&nbsp;(1)
+    </h2>
+    <div class="post-list"><div class="tag-entry">
+                <a href="/2024-10-10-Tug-of-war-game/">Tug of war game</a>
+                <div class="entry-date">
+                    <time datetime="2024-10-10T00:00:00-05:00">October 10, 2024</time>
+                </div>
+            </div></div></div>
 
 
       

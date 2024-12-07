@@ -1,0 +1,52 @@
+[ 
+ 
+{ 
+"title"    : "optimized prime miner", 
+"desc"     : "optimized prime miner", 
+"category" : "DSA, optimization", 
+"url"      : "/2024-11-03-Prime-Miner-Optimization/", 
+"date"     : "November  3, 2024" 
+}, 
+ 
+{ 
+"title"    : "Tug of war game", 
+"desc"     : "Tug of war game", 
+"category" : "esp32, webserver", 
+"url"      : "/2024-10-10-Tug-of-war-game/", 
+"date"     : "October 10, 2024" 
+}, 
+ 
+{ 
+"title"    : "ESP32 macropad", 
+"desc"     : "ESP32 macropad", 
+"category" : "esp32, buttons", 
+"url"      : "/2024-09-13-esp32BT-macropad/", 
+"date"     : "September 13, 2024" 
+}, 
+ 
+ 
+{ 
+"title"    : "About me", 
+"desc"     : "About me", 
+"category" : "page", 
+"url"      : "/aboutme/", 
+"date"     : "January 1, 1970" 
+}, 
+ 
+{ 
+"title"    : "Aaditya&#39;s Random Access Memories", 
+"desc"     : "Aaditya&#39;s Random Access Memories", 
+"category" : "page", 
+"url"      : "/", 
+"date"     : "January 1, 1970" 
+}, 
+ 
+{ 
+"title"    : "Tag Index", 
+"desc"     : "Tag Index", 
+"category" : "page", 
+"url"      : "/tags/", 
+"date"     : "January 1, 1970" 
+} 
+ 
+]
