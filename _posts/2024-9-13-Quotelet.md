@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Quotelet
-subtitle: My own customisable bluetooth deck
+subtitle: An automated A.I. channel
 cover-img: /assets/img/Quotelet_banner.png
 thumbnail-img: /assets/img/Quotelet_logo.png
 
@@ -84,8 +84,5 @@ Now at this point I was tired of looking for APIs and decided to do manual colle
 Well now the real automation begins. What I plan to do is use python to combine the audio and video and add a text overlay. So I made a basic folder structure on my computer to keep things organized.
 
 
-
-
-
-## Conclusion
+## Unfinished blog (WIP)
 
