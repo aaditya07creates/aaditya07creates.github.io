@@ -2,8 +2,8 @@
 layout: post
 title: ESP32 macropad
 subtitle: My own customisable bluetooth deck
-cover-img: /assets/img/path.jpg
-thumbnail-img: /assets/img/thumb.png
+cover-img: /assets/img/macropadthumbnail.jpg
+thumbnail-img: /assets/img/macropadthumbnail.jpg
 share-img: /assets/img/path.jpg
 tags: [esp32, buttons]
 author: Aaditya Bhave
@@ -11,6 +11,7 @@ author: Aaditya Bhave
 <br />
 
 ## ESP32 MACROPAD ##
+
 A macropad is a physical device with buttons that are mapped to some customizable functions. It is used to enhance productivity, for navigating software, playing games or all of these at once. I have made my own version of it using the blekeyboard library and the esp32. 
 <br />
 

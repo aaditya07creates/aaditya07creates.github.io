@@ -1,8 +1,8 @@
 [ 
  
 { 
-"title"    : "optimized prime miner", 
-"desc"     : "optimized prime miner", 
+"title"    : "Optimized prime miner", 
+"desc"     : "Optimized prime miner", 
 "category" : "DSA, optimization", 
 "url"      : "/2024-11-03-Prime-Miner-Optimization/", 
 "date"     : "November  3, 2024" 
@@ -21,6 +21,14 @@
 "desc"     : "ESP32 macropad", 
 "category" : "esp32, buttons", 
 "url"      : "/2024-09-13-esp32BT-macropad/", 
+"date"     : "September 13, 2024" 
+}, 
+ 
+{ 
+"title"    : "Quotelet", 
+"desc"     : "Quotelet", 
+"category" : "esp32, buttons", 
+"url"      : "/2024-09-13-Quotelet/", 
 "date"     : "September 13, 2024" 
 }, 
  

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: optimized prime miner
+title: Optimized prime miner
 subtitle: My Take on Optimization
 cover-img: /assets/img/path.jpg
 thumbnail-img: /assets/img/thumb.png
@@ -8,14 +8,16 @@ share-img: /assets/img/path.jpg
 tags: [DSA, optimization]
 author: Aaditya Bhave
 ---
+<br />
 
-## optimized prime miner ##
+## Optimized prime miner ##
+
 I used the Square Root Theorem for Primality Testing as the base program. It works by taking the new number's square root and checking if prime numbers less than the root can divide it. If they cannot, it is prime. The program's goal is to compute as many primes as it can.
 
 In programming, there are many types of optimizations, but most of them work towards saving resources and time. I implemented such optimizations and mathematical logic to optimize my program.
 Iterating by 2
 We know no prime numbers other than two are even, so we can skip the even numbers by iterating by 2. This optimization halves the loops already.
-
+<br />
 
 ~~~
 number += 2
