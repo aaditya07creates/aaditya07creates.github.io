@@ -390,8 +390,7 @@ img {
   .navbar-custom.top-nav-regular .avatar-container {
     width: 6.25rem;
     bottom: -1.9375rem;
-    /* width: 12.25rem;
-    bottom: -8rem; */
+   
   }
 
   .navbar-custom.top-nav-regular .avatar-container .avatar-img-border {
@@ -726,7 +725,7 @@ footer .footer-custom-content {
   position: relative;
 }
 .intro-header.big-img {
-  height: 340px;  
+  height: 300px;  
   background: no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -746,7 +745,7 @@ nav.top-nav-short-permanent ~ header > .intro-header.big-img {
   position: absolute;
   width: 100%;
   height: 100%;
-  opacity:  0%;
+  opacity: 0;
   background: no-repeat center center;
   -webkit-background-size: contain;
   -moz-background-size: contain;
