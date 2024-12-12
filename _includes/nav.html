@@ -36,6 +36,7 @@
             <span id="nav-search-icon" class="fa fa-search"></span>
             <span id="nav-search-text">Search</span>
           </a>
+          
         </li>
       {%- endif -%}
     </ul>
@@ -50,7 +51,7 @@
   {% if site.avatar and page.show-avatar != false %}
     <div class="avatar-container">
       <div class="avatar-img-border">
-        <a href="{{ '/' | absolute_url }}">
+        <a href="{{ '/about' | absolute_url }}">
           <img alt="Navigation bar avatar" class="avatar-img" src="{{ site.avatar | relative_url }}" />
         </a>
       </div>

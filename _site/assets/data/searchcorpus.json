@@ -27,7 +27,7 @@
 { 
 "title"    : "Quotelet", 
 "desc"     : "Quotelet", 
-"category" : "esp32, buttons", 
+"category" : "Youtube, Python, AI", 
 "url"      : "/2024-09-13-Quotelet/", 
 "date"     : "September 13, 2024" 
 }, 
@@ -37,13 +37,13 @@
 "title"    : "About me", 
 "desc"     : "About me", 
 "category" : "page", 
-"url"      : "/aboutme/", 
+"url"      : "/about/", 
 "date"     : "January 1, 1970" 
 }, 
  
 { 
-"title"    : "Aaditya&#39;s Random Access Memories", 
-"desc"     : "Aaditya&#39;s Random Access Memories", 
+"title"    : "Random Access Memories", 
+"desc"     : "Random Access Memories", 
 "category" : "page", 
 "url"      : "/", 
 "date"     : "January 1, 1970" 

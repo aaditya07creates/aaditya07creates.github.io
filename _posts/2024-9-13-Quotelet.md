@@ -6,7 +6,7 @@ cover-img: /assets/img/Quotelet_banner.png
 thumbnail-img: /assets/img/Quotelet_logo.png
 
 share-img: /assets/img/path.jpg
-tags: [esp32, buttons]
+tags: [Youtube, Python, AI]
 author: Aaditya Bhave
 ---
 <br />

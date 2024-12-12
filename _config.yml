@@ -19,12 +19,12 @@ author: Aaditya Bhave
 # --- List of links in the navigation bar --- #
 ###############################################
 
-# navbar-links:
-#   About Me: "aboutme"
-#   Resources:
-#     - Beautiful Jekyll: "https://beautifuljekyll.com"
-#     - Learn markdown: "https://www.markdowntutorial.com/"
-#   Author's home: "https://deanattali.com"
+navbar-links:
+    About Me: "about"
+    #Resources:
+    #- Beautiful Jekyll: "https://beautifuljekyll.com"
+    #- Learn markdown: "https://www.markdowntutorial.com/"
+#Author's home: "https://deanattali.com"
 
 ################
 # --- Logo --- #

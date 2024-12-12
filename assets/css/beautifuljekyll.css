@@ -19,14 +19,18 @@ layout: null
   --footer-hover-col: {{ site.footer-hover-col | default: "#0085A1" }};
 
   /* common CSS variables */
-  /* --body-font: 'Lora', 'Times New Roman', serif; */
-  /* --header-font: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; */
-  /* --header-font: 'Rubix', 'Monaco', Times New Roman, Times New Roman, serif; */
+  --body-font: 'Lora', 'Times New Roman', serif;
+  --header-font: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  /* --body-font: 'Roboto', sans-serif;
+  --header-font: 'Merriweather', serif; */
+
+																					 
   --mid-col: #808080;
 
-  /* trial using chatgpt */
-  --body-font: 'Roboto', sans-serif;
-  --header-font: 'Merriweather', serif;
+						   
+									   
+										  
 
 
 }
@@ -35,12 +39,13 @@ layout: null
 
 html {
   font-size: 100%
-}
 
+}
+/* 
 body {
-  /* font-family: var(--body-font); */
+  font-family: var(--body-font);
   font-size: 1.125rem;
-  /* color: var(--text-col); */
+  color: var(--text-col);
   position: relative;
   background-color: var(--page-col);
   {% if site.page-img %}
@@ -52,13 +57,42 @@ body {
   display: flex;
   flex-direction: column;
 
-
- /* trail using chatgpt */
   background: linear-gradient(to right, #ece9e6, #ffffff);
   color: #333;
   font-family: 'Roboto', sans-serif;
+						  
+														  
+			  
+									
 
+} */
+
+
+body {
+  font-family: 'Roboto', sans-serif; /* Modern, clean font */
+  font-size: 1.125rem;
+  color: #333; /* Dark text for better readability */
+  position: relative;
+  background-color: #29804d; /* Light neutral background */
+  {% if site.page-img %}
+  background-image: url({{ site.page-img | relative_url }}); /* Background image (if present) */
+  background-attachment: fixed;
+  {% endif %}
+  overflow-wrap: break-word;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to right, #ece9e6, #ffffff); /* Soft gradient for a clean look */
+  padding: 20px; /* Add space around the content */
 }
+
+/* Optional: Smooth scroll bar for a more polished experience */
+/* body::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+} */
+
+
 body > main {
   flex: 1;
 }
@@ -363,7 +397,7 @@ img {
   position: absolute;
   left: 50%;
   width: 3.125rem;
-  bottom: -1.5rem;
+  bottom: 1.5rem;
   transition: opacity 0.5s ease-in-out;
   -webkit-transition: opacity 0.5s ease-in-out;
   -moz-transition: opacity 0.5s ease-in-out;
@@ -401,9 +435,11 @@ img {
 @media (min-width: 1200px) {
   .navbar-custom.top-nav-regular .avatar-container {
     width: 6.25rem;
-    bottom: -1.9375rem;
-    /* width: 12.25rem;
-    bottom: -8rem; */
+    /* bottom: -1.9375rem; */
+    bottom: -0.60rem;
+
+	
+   
   }
 
   .navbar-custom.top-nav-regular .avatar-container .avatar-img-border {
@@ -494,12 +530,13 @@ footer .footer-custom-content {
   display: flex;
   flex-wrap: wrap;
   gap: 20px; /* Adjust spacing between posts */
+  
 }
 
 /* .posts-list {
     margin: 0;
 } */
-.posts-list {
+.posts-lists {
   /* display: flex;
   flex-wrap: wrap;
   list-style: none;
@@ -520,6 +557,53 @@ footer .footer-custom-content {
 
 
 }
+.posts-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid layout */
+  gap: 20px; /* Adjust spacing between posts */
+  margin: 20px auto; /* Center the grid container with margin */
+  padding: 0;
+  list-style: none;
+  max-width: 1200px; /* Limit the container width */
+  background-color: #f8f9fa; /* Light gray background for the list container */
+  border-radius: 10px; /* Smooth rounded corners */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  padding: 20px; /* Add padding inside the container */
+}
+
+/* Individual post styling */
+.posts-list > li {
+  background-color: #ffffff; /* White background for each post */
+  padding: 15px; /* Add padding inside each post */
+  border-radius: 8px; /* Rounded corners for posts */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover effect for posts */
+.posts-list > li:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+/* Text styling inside posts */
+.posts-list > li h2,
+.posts-list > li p {
+  color: #333333; /* Dark gray text for readability */
+  margin: 0;
+}
+
+/* Adjust spacing for headings and paragraphs */
+.posts-list > li h2 {
+  margin-bottom: 10px; /* Add space below heading */
+  font-size: 1.25rem; /* Slightly larger font for headings */
+}
+
+.posts-list > li p {
+  font-size: 1rem; /* Regular paragraph size */
+  line-height: 1.5; /* Improve readability */
+}
+
 @media (min-width: 1000px) {
   .container, .container-md, .container-sm {
       max-width: 2500px;
@@ -709,6 +793,48 @@ footer .footer-custom-content {
     margin-top: 0.625rem;
   }
 }
+/* --- Tags --- */
+
+.blog-tags {
+  font-family: var(--header-font);
+  font-size: 0.9375rem;
+  margin: 1.875rem 0;
+}
+
+.blog-tags span {
+  color: var(--text-col);
+  opacity: 0.8;
+}
+
+.blog-tags .list-inline-item {
+  margin-right: 0;
+}
+
+.blog-tags a {
+  color: var(--text-col);
+  text-decoration: none;
+  padding: 0 0.3125rem;
+  opacity: 0.8;
+  border: 1px solid transparent;
+  border-radius: 0.1875rem;
+}
+
+.blog-tags a:hover {
+  opacity: 1;
+  color: var(--text-col);
+  border-color: var(--text-col);
+}
+
+.post-preview .blog-tags {
+  margin-top: 0.3125rem;
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .post-preview .blog-tags {
+    margin-top: 0.625rem;
+  }
+}
 
 /* Tags page */
 
@@ -741,15 +867,15 @@ footer .footer-custom-content {
   position: relative;
 }
 .intro-header.big-img {
-  height: 300px;  
+	 height: 350px;  
   background: no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
-  margin-top: 3.1875rem; /*The small navbar is 50px tall + 1px border */
-  margin-bottom:  2.1875rem;
-  /* border: 2px solid; */
+  margin-top: 3.1875rem; /* The small navbar is 50px tall + 1px border */
+  margin-bottom: 2.1875rem;
+						  
 }
 nav.top-nav-short-permanent ~ header > .intro-header {
   margin-top: 5rem;
@@ -763,10 +889,10 @@ nav.top-nav-short-permanent ~ header > .intro-header.big-img {
   height: 100%;
   opacity: 0;
   background: no-repeat center center;
-  -webkit-background-size: contain;
-  -moz-background-size: contain;
-  background-size: contain;
-  -o-background-size: contain;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
   -webkit-transition: opacity 1s linear;
   -moz-transition: opacity 1s linear;
   transition: opacity 1s linear;
@@ -823,13 +949,13 @@ nav.top-nav-short-permanent ~ header > .intro-header.big-img {
   bottom: 0;
   display: none;
 }
-@media (max-width: 768px) {
-  .intro-header.big-img {
-    height: 200px; /* Further reduce the height on smaller screens */
-}
+						   
+						 
+																	 
+ 
 @media (min-width: 1200px) {
   .intro-header {
-    margin-top: 13.5rem /*8.125rem*/;
+    margin-top: 8.125rem;
   }
   .intro-header.big-img {
     margin-top: 5.6875rem; /* Full navbar is small navbar + 20px padding on each side when expanded */
@@ -839,7 +965,7 @@ nav.top-nav-short-permanent ~ header > .intro-header.big-img {
     padding: 9.375rem 0;
   }
   .intro-header .page-heading h1 {
-    font-size: 4rem;
+    font-size: 5rem;
   }
   .intro-header .post-heading h1 {
     font-size: 3.125rem;
@@ -1200,3 +1326,4 @@ pre {
     display: inline-block;
   }
 }
+ 
