@@ -17,7 +17,8 @@ common-ext-js:
 <html lang="{{ page.language | default: site.language | default: 'en' }}">
 
   {% include head.html %}
-
+  <head><meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
   <body>
 
     <main class="{% if page.full-width %} container-fluid {% else %} container-md {% endif %} main-content">

@@ -64,7 +64,7 @@ A macropad is a physical device with buttons that are mapped to some customizabl
 
 {: .box-note}
 **Note:**
-  The device is powered by a 10000mAh power bank, this could power the esp32 for a long time despite the resource consuming bluetooth communication.
+  The device is powered by a 10000mAh power bank, this could power the esp32 for a long time despite the bluetooth communication which consumes a lot of resources.
 
 
 * **Some issues**\
@@ -84,6 +84,8 @@ The device has so much room for improvement some of the features we can add to m
 * Smaller size
 * Better buttons
 * custom pcb
+
+![PCB](/assets/img/pcbmacropad.png)
 
 
 

@@ -559,7 +559,9 @@ footer .footer-custom-content {
 }
 .posts-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid layout */
+  /* grid-template-columns: repeat(2, 1fr); This will show 2 cards per row */
+   /* Responsive grid layout */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
   gap: 20px; /* Adjust spacing between posts */
   margin: 20px auto; /* Center the grid container with margin */
   padding: 0;
