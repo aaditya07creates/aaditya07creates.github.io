@@ -25,12 +25,23 @@
       <item>
         <title>Tug of war game</title>
         <description>
-          A button dexterity game with esp32 - 
-          Tug of war game The tug of war game is a button dexterity game. A 2 player game with induidual controllers, that you can spectate through a web interface. Overview of the game The goal of the game is simple: Player 1 and Player 2 each press their respective button...
+          A button dexterity game - 
+          Tug of war game with esp32 The tug of war game is a button dexterity game. A 2 player game with induidual controllers, that you can spectate through a web interface. Overview of the game The goal of the game is simple: Player 1 and Player 2 each press their...
         </description>
         <pubDate>Thu, 10 Oct 2024 00:00:00 -0500</pubDate>
         <link>http://localhost:4000/2024-10-10-Tug-of-war-game/</link>
         <guid isPermaLink="true">http://localhost:4000/2024-10-10-Tug-of-war-game/</guid>
+      </item>
+    
+      <item>
+        <title>ESP Chat server</title>
+        <description>
+          A chat server I host using the esp32 - 
+          Introduction My goal was to create a live-chat server that doesn’t require access to the internet. Phones and computers can connect to the server directly without having internet access, I wanted to create a chat server to help people from my neighbourhood be in contact with each other during power-cuts...
+        </description>
+        <pubDate>Thu, 10 Oct 2024 00:00:00 -0500</pubDate>
+        <link>http://localhost:4000/2024-10-10-ESP-Chat-Server/</link>
+        <guid isPermaLink="true">http://localhost:4000/2024-10-10-ESP-Chat-Server/</guid>
       </item>
     
       <item>

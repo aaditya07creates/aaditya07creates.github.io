@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Tug of war game
-subtitle: A button dexterity game with esp32
-cover-img: /assets/img/tugofwarsite.png
+subtitle: A button dexterity game
+cover-img: /assets/img/tugofwarsitecover.png
 thumbnail-img: /assets/img/tugofwarsite.png
 share-img: /assets/img/path.jpg
 tags: [esp32, webserver]
@@ -10,7 +10,7 @@ author: Aaditya Bhave
 ---
 <br />
 
-## Tug of war game ##
+## Tug of war game with esp32 ##
 
 The tug of war game is a button dexterity game. A 2 player game with induidual controllers, that you can spectate through a web interface.
  

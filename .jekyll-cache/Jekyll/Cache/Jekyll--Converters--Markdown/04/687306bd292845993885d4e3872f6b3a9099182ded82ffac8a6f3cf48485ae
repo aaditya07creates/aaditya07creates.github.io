@@ -1,4 +1,4 @@
-I"Î<<p><br /></p>
+I"F=<p><br /></p>
 
 <h2 id="esp32-macropad">ESP32 MACROPAD</h2>
 
@@ -11,7 +11,10 @@
   <li>ESP32 Microcontroller - This handles all the logic and connects to the computer with bluetooth.</li>
   <li>6 Push Buttons - These are the triggers for the functions.</li>
   <li>A breadboard - To mount the esp32 and pushbuttons.</li>
+  <li>A Powerbank - To power the esp32.</li>
 </ul>
+
+<p><img src="/assets/img/pcbmacropad.png" alt="PCB" /></p>
 
 <p><br /></p>
 
@@ -61,7 +64,7 @@ When a device connects to the esp32, the main loop begins running. When a button
 </ul>
 
 <p class="box-note"><strong>Note:</strong>
-  The device is powered by a 10000mAh power bank, this could power the esp32 for a long time despite the resource consuming bluetooth communication.</p>
+  The device is powered by a 10000mAh power bank, this could power the esp32 for a long time despite the bluetooth communication which consumes a lot of resources.</p>
 
 <ul>
   <li><strong>Some issues</strong><br />

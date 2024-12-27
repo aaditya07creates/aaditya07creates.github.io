@@ -1,9 +1,9 @@
 ---
 layout: post
 title: ESP Chat server
-subtitle: A chat server I host using esp32
-cover-img: /assets/img/tugofwarsit.png
-thumbnail-img: /assets/img/tugofwarsit.png
+subtitle: A chat server I host using the esp32
+cover-img: /assets/img/chatserver.png
+thumbnail-img: /assets/img/messageicon.jpg
 share-img: /assets/img/path.jpg
 tags: [esp32, webserver]
 author: Aaditya Bhave
@@ -28,21 +28,25 @@ The goal of the game is simple:
 
 ## How it works
 
-1. Setting Up the Network
+**1. Setting Up the Network** <br />
 The ESP32 is configured as an access point using the WiFi.softAP() method. Devices within range can connect to this network. The static IP 192.168.4.1 is assigned to the ESP32, which acts as a server and router.
 
-2. Hosting the Web Interface
+**2. Hosting the Web Interface** <br />
 The HTML, CSS, and JavaScript for the chat interface are embedded directly in the code as a string literal (page). When users access the server via a browser, the ESP32 sends this page to the client.
 
-3. Handling User Connections
+  ![Chat Window](/assets/img/chatserver.png)
+
+**3. Handling User Connections** <br />
 Each user is identified by their device's IP address, which the ESP32 obtains using server.client().remoteIP(). A color code is generated for the IP for verification of identity incase of username change.
 
-4. Messaging service
+**4. Messaging service** <br />
 Javascript on the page sends a POST request to the /send endpoint along with the message content.
 The esp32 validates the username, length and trims extra spaces in the message.
 The message is finally appended to the chatlog string.
 
-5. Dynamic updates
+  ![Error Message](/assets/img/chatservererrormsg.png)
+
+**5. Dynamic updates** <br />
 The javascript on the client's side periodically requests the server for updates on the user list and messages.
 
 

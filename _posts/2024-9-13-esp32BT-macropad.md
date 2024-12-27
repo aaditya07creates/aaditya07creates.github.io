@@ -3,7 +3,7 @@ layout: post
 title: ESP32 macropad
 subtitle: My own customisable bluetooth deck
 cover-img: /assets/img/macropadthumbnail.jpg
-thumbnail-img: /assets/img/macropadthumbnail.jpg
+thumbnail-img: /assets/img/macropadthumbnailimg.jpg
 share-img: /assets/img/path.jpg
 tags: [esp32, buttons]
 author: Aaditya Bhave
@@ -21,6 +21,9 @@ A macropad is a physical device with buttons that are mapped to some customizabl
 * ESP32 Microcontroller - This handles all the logic and connects to the computer with bluetooth.
 * 6 Push Buttons - These are the triggers for the functions.
 * A breadboard - To mount the esp32 and pushbuttons.
+* A Powerbank - To power the esp32.
+
+![Setup](/assets/img/macropadthumbnailimg.jpg)
 
 <br />
 

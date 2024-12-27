@@ -17,6 +17,14 @@
 }, 
  
 { 
+"title"    : "ESP Chat server", 
+"desc"     : "ESP Chat server", 
+"category" : "esp32, webserver", 
+"url"      : "/2024-10-10-ESP-Chat-Server/", 
+"date"     : "October 10, 2024" 
+}, 
+ 
+{ 
 "title"    : "ESP32 macropad", 
 "desc"     : "ESP32 macropad", 
 "category" : "esp32, buttons", 

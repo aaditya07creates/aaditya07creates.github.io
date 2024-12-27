@@ -12,7 +12,7 @@ author: Aaditya Bhave
 <br />
 
 ## An automated A.I. channel ##
-For the past year we've seen a lot of A.I. generated content on youtube. Now there is a difference between A.I. generated and automation we must understand first, A.I. (artificial intelligence) generated content is the content A.I. thinks of, for example a script for a video, the thumbnail or even the voiceover. Automated on the other hand is making the process autonomous or requiring minimum human intervention. Keep in mind I have written "automated A.i. channel" and not "A.I. automated channel" since A.I. is not the one that is automating the process. Thats enough of saying A.I. for now. Check out the channel [here!](https://beautifuljekyll.com/faq/#links-in-project-page)
+For the past year we've seen a lot of A.I. generated content on youtube. Now there is a difference between A.I. generated and automation we must understand first, A.I. (artificial intelligence) generated content is the content A.I. thinks of, for example a script for a video, the thumbnail or even the voiceover. Automated on the other hand is making the process autonomous or requiring minimum human intervention. Keep in mind I have written "automated A.i. channel" and not "A.I. automated channel" since A.I. is not the one that is automating the process. Thats enough of saying A.I. for now. Check out the channel [here!](https://www.youtube.com/@Quotelet1/shorts)
 
 In this project i've explored multiple ways of doing both A.I. integration and automation.
 
@@ -130,7 +130,7 @@ How many videos would you like to generate? 5
 **Warning:** Run the program directly in terminal and not in Python IDLE or Pycharm terminal. Running it in here will cause it to begin video generation but the process will never complete and will be stuck or take a lot of time.
 
 ## Conclusion
-This project was pretty fun, it gave me a chance to learn and apply my knowledge about APIs, automation and also about youtube channels. Initially it takes some time to set-up but after you complete it you can create videos in bulk. You can see the final result [here!](https://beautifuljekyll.com/faq/#links-in-project-page)
+This project was pretty fun, it gave me a chance to learn and apply my knowledge about APIs, automation and also about youtube channels. Initially it takes some time to set-up but after you complete it you can create videos in bulk. You can see the final result [here!](https://www.youtube.com/@Quotelet1/shorts)
 
 ## Code
 
