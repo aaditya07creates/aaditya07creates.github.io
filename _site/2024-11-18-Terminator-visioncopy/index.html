@@ -11,14 +11,14 @@
 
   
 
-  <title>About me | Aaditya's Space</title>
+  <title>Terminator Vision | Aaditya's Space</title>
 
   
   
   <meta name="author" content="Aaditya Bhave">
   
 
-  <meta name="description" content="I Like Monkeys">
+  <meta name="description" content="Seeing everything as terminator does">
 
   
 
@@ -81,30 +81,34 @@
 
   
   <meta property="og:site_name" content="Aaditya's Space">
-  <meta property="og:title" content="About me | Aaditya's Space">
-  <meta property="og:description" content="I Like Monkeys">
+  <meta property="og:title" content="Terminator Vision | Aaditya's Space">
+  <meta property="og:description" content="Seeing everything as terminator does">
 
   
-  <meta property="og:image" content="http://localhost:4000/assets/img/avatar-icon.png">
-  
-
-  
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="http://localhost:4000/about/">
-  <link rel="canonical" href="http://localhost:4000/about/">
+  <meta property="og:image" content="http://localhost:4000/assets/img/crosshair.jpg">
   
 
   
-  <meta name="twitter:card" content="summary">
+  <meta property="og:type" content="article">
+  
+  <meta property="og:article:author" content="Aaditya Bhave">
+  
+  <meta property="og:article:published_time" content="2024-11-18T00:00:00-05:00">
+  <meta property="og:url" content="http://localhost:4000/2024-11-18-Terminator-visioncopy/">
+  <link rel="canonical" href="http://localhost:4000/2024-11-18-Terminator-visioncopy/">
+  
+
+  
+  <meta name="twitter:card" content="summary_large_image">
   
   <meta name="twitter:site" content="@">
   <meta name="twitter:creator" content="@">
 
-  <meta property="twitter:title" content="About me | Aaditya's Space">
-  <meta property="twitter:description" content="I Like Monkeys">
+  <meta property="twitter:title" content="Terminator Vision | Aaditya's Space">
+  <meta property="twitter:description" content="Seeing everything as terminator does">
 
   
-  <meta name="twitter:image" content="http://localhost:4000/assets/img/avatar-icon.png">
+  <meta name="twitter:image" content="http://localhost:4000/assets/img/crosshair.jpg">
   
 
   
@@ -181,29 +185,46 @@
   
 
 
+  <div id="header-big-imgs" data-num-img=1
+    
+    
+    
+    
+      data-img-src-1="http://localhost:4000/assets/img/termvis.png"
+    
+    
+    
+  ></div>
 
-<header class="header-section ">
-<div class="intro-header ">
+
+<header class="header-section has-img">
+<div class="intro-header  big-img ">
   
   <div class="container-md">
     <div class="row">
       <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
-        <div class="page-heading">
-          <h1>About me</h1>
+        <div class="post-heading">
+          <h1>Terminator Vision</h1>
           
             
-              <hr class="small">
-              <span class="page-subheading">I Like Monkeys</span>
+              <h2 class="post-subheading">Seeing everything as terminator does</h2>
             
           
           
+           
+            
+              By <strong>Aaditya Bhave</strong><br>
+            
+            <span class="post-meta">Posted on November 18, 2024</span>
+            
+            
           
         </div>
       </div>
     </div>
   </div>
   
-  
+  <span class='img-desc'></span>
 </div>
 
 
@@ -214,25 +235,128 @@
 <main class=" container-md ">
   <div class="row">
     <div class=" col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 ">
+
       
 
-      <p>My name is Aaditya Bhave. I have the following qualities:</p>
+      
+
+      <div class="blog-post">
+        <p><br /></p>
+
+<h2 id="introduction">INTRODUCTION</h2>
+
+<p>The terminator is a robot from a movie that time travels into the past to save someone. I love watching robot movies and got goosebumbs after watching terminator. I decided to make a device that can let me see things like terminator does.
+<br /></p>
+
+<h2 id="basic-idea">Basic idea</h2>
+
+<p>My idea was to mount a camera and raspberry pi onto my universal VR headset and cast the input from the camera onto a phone through wifi inside the headset after applying face recognition, hand recognition and cool overlays.
+<br /></p>
+
+<h2 id="components-used">Components used</h2>
 
 <ul>
-  <li>I Like StarWars</li>
-  <li>I’m extremely loyal to my family</li>
+  <li>Webcam - For taking video input.</li>
+  <li>Raspberry pi - This takes the camera input, applies the overlays and casts to the phone</li>
+  <li>A VR headset - To see the output.</li>
+  <li>A smartphone - to be put inside the vr headset as a display.</li>
+  <li>A Powerbank - To power the contraption.</li>
 </ul>
 
-<p>What else do you need?</p>
+<p><img src="/assets/img/vrphone.jpg" alt="Setup" /></p>
 
-<h3 id="my-story">My story</h3>
+<p><br /></p>
 
-<p>To be honest, I’m having some trouble remembering right now.</p>
+<h2 id="how-it-works">How it works</h2>
+
+<p>The raspberry pi takes input from a webcam whose footage is passed through a python script, the script then applies overlays after detecting faces and hands with mediapipe and a pretained face recognition model.</p>
+
+<p>The modified frames are streamed onto a website on the local wifi network through a library called flask. The frames are updated live</p>
+
+<h1 id="unfinished-blog-wip">Unfinished blog (wip)</h1>
+
+      </div>
+
+      
+        <div class="blog-tags">
+          <span>Tags:</span>
+          
+            <a href="/tags#Raspberry pi">Raspberry pi</a>
+          
+            <a href="/tags#OpenCV">OpenCV</a>
+          
+        </div>
+      
+
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+  <span class="sr-only">Share: </span>
+
+  
+    <a href="https://twitter.com/intent/tweet?text=Terminator+Vision&url=http%3A%2F%2Flocalhost%3A4000%2F2024-11-18-Terminator-visioncopy%2F"
+      class="btn btn-social-icon btn-twitter" title="Share on X (Twitter)">
+      <span class="fab fa-fw fa-x-twitter" aria-hidden="true"></span>
+      <span class="sr-only">X (Twitter)</span>
+    </a>
+  
+
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F2024-11-18-Terminator-visioncopy%2F"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fab fa-fw fa-facebook" aria-hidden="true"></span>
+      <span class="sr-only">Facebook</span>
+    </a>
+  
+
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F2024-11-18-Terminator-visioncopy%2F"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fab fa-fw fa-linkedin" aria-hidden="true"></span>
+      <span class="sr-only">LinkedIn</span>
+    </a>
+  
+
+  
+
+  
+
+</section>
+
 
 
       
 
+      <ul class="pagination blog-pager">
+        
+        <li class="page-item previous">
+          <a class="page-link" href="/2024-10-15-handgestures/" data-toggle="tooltip" data-placement="top" title="Hand gestures">
+            <i class="fas fa-arrow-left" alt="Previous Post"></i>
+            <span class="d-none d-sm-inline-block">Previous Post</span>
+          </a>
+        </li>
+        
+        
+      </ul>
       
+  
+  
+  
+
+  
+
+
+  
+
+  
+
+
 
     </div>
   </div>

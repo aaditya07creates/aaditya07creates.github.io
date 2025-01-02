@@ -1,43 +1,59 @@
 [ 
  
 { 
-"title"    : "Optimized prime miner", 
-"desc"     : "Optimized prime miner", 
-"category" : "DSA, optimization", 
-"url"      : "/2024-11-03-Prime-Miner-Optimization/", 
-"date"     : "November  3, 2024" 
+"title"    : "Terminator Vision", 
+"desc"     : "Terminator Vision", 
+"category" : "Raspberry pi, OpenCV", 
+"url"      : "/2024-11-18-Terminator-visioncopy/", 
+"date"     : "November 18, 2024" 
 }, 
  
 { 
-"title"    : "Tug of war game", 
-"desc"     : "Tug of war game", 
-"category" : "esp32, webserver", 
-"url"      : "/2024-10-10-Tug-of-war-game/", 
-"date"     : "October 10, 2024" 
-}, 
- 
-{ 
-"title"    : "ESP Chat server", 
-"desc"     : "ESP Chat server", 
-"category" : "esp32, webserver", 
-"url"      : "/2024-10-10-ESP-Chat-Server/", 
-"date"     : "October 10, 2024" 
-}, 
- 
-{ 
-"title"    : "ESP32 macropad", 
-"desc"     : "ESP32 macropad", 
-"category" : "esp32, buttons", 
-"url"      : "/2024-09-13-esp32BT-macropad/", 
-"date"     : "September 13, 2024" 
+"title"    : "Hand gestures", 
+"desc"     : "Hand gestures", 
+"category" : "OpenCV", 
+"url"      : "/2024-10-15-handgestures/", 
+"date"     : "October 15, 2024" 
 }, 
  
 { 
 "title"    : "Quotelet", 
 "desc"     : "Quotelet", 
 "category" : "Youtube, Python, AI", 
-"url"      : "/2024-09-13-Quotelet/", 
-"date"     : "September 13, 2024" 
+"url"      : "/2024-09-27-Quotelet/", 
+"date"     : "September 27, 2024" 
+}, 
+ 
+{ 
+"title"    : "ESP32 macropad", 
+"desc"     : "ESP32 macropad", 
+"category" : "esp32, buttons", 
+"url"      : "/2024-06-13-esp32BT-macropad/", 
+"date"     : "June 13, 2024" 
+}, 
+ 
+{ 
+"title"    : "ESP Chat server", 
+"desc"     : "ESP Chat server", 
+"category" : "esp32, webserver", 
+"url"      : "/2024-01-10-ESP-Chat-Server/", 
+"date"     : "January 10, 2024" 
+}, 
+ 
+{ 
+"title"    : "Optimized prime miner", 
+"desc"     : "Optimized prime miner", 
+"category" : "DSA, optimization", 
+"url"      : "/2023-10-08-Prime-Miner-Optimization/", 
+"date"     : "October  8, 2023" 
+}, 
+ 
+{ 
+"title"    : "Tug of war game", 
+"desc"     : "Tug of war game", 
+"category" : "esp32, webserver", 
+"url"      : "/2023-08-12-Tug-of-war-game/", 
+"date"     : "August 12, 2023" 
 }, 
  
  
