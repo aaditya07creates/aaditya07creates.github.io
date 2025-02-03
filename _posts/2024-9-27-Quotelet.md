@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Quotelet
-subtitle: An automated A.I. channel
+subtitle: An automated youtube A.I. channel
 cover-img: /assets/img/Quotelet_banner.png
 thumbnail-img: /assets/img/Quotelet_logo.png
 
