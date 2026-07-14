@@ -50,11 +50,52 @@ Under the hood, the architecture is the part I'm proudest of, and there's a lot 
 
 **The coordinator.** At the center sits a coordinator server that does the routing — it tracks which shards live where, issues challenges, and helps clients find their data again. Crucially, it **never sees your plaintext and never holds your keys.** It's a switchboard, not a vault. That single property is what the whole privacy argument rests on.
 
-**Erasure coding.** Files aren't just copied around — that would waste huge amounts of space. I used **Reed-Solomon erasure coding**, which splits a file into `n` shards where *any* `k` of them rebuild the whole thing. Hosts can drop offline, lose power, or vanish entirely, and as long as enough shards survive somewhere, your file reconstructs perfectly. (A gotcha I lost real time to: the math runs over a field called GF(256), and you have to pick the right primitive polynomial. Every tutorial pastes `0x11b`, which quietly corrupts everything; the correct one is `0x11d`.)
+**Erasure coding.** Files aren't just copied around — that would waste huge amounts of space. I used **Reed-Solomon erasure coding**, which splits a file into `n` shards where *any* `k` of them rebuild the whole thing. Hosts can drop offline, lose power, or vanish entirely, and as long as enough shards survive somewhere, your file reconstructs perfectly.
+
+The math runs over a finite field called GF(256), and this is where I lost hours. You need a *primitive polynomial* where 2 is a true generator (full multiplicative order 255). Every tutorial online pastes `0x11b`, the AES polynomial — under which 2 only generates a 51-element subgroup, quietly corrupting the lookup tables and producing garbage. The correct one is `0x11d`:
+
+~~~python
+_PRIM = 0x11d   # x^8 + x^4 + x^3 + x^2 + 1  (2 is primitive, order 255)
+
+def _build_gf_tables():
+    exp = [0] * 512   # doubled for wrap-around in mul
+    log = [0] * 256
+    x = 1
+    for i in range(255):
+        exp[i] = x
+        log[x] = i
+        x <<= 1
+        if x >= 256:
+            x ^= _PRIM   # reduce mod the primitive polynomial
+    ...
+~~~
+
+One wrong hex constant and every shard you produce is silently wrong. That bug taught me to actually *verify* the mathematical assumption instead of trusting a snippet.
 
 **Encryption.** Each file is encrypted with AES-256 on the user's own device *before* it's ever split, so every shard is meaningless on its own and the key never leaves your phone. Important, but honestly it's the simplest brick in the wall.
 
-**Proof of storage.** This was one of my favorite problems. If I'm paying a host to store a shard, what stops them from quietly deleting it and just *pretending* it's still there? My answer was a **Merkle challenge-response** system: every few hours the coordinator asks a host to prove it still holds a specific, randomly chosen chunk of the data. The host can't know in advance which chunk will be asked, and it can't fake the answer without actually possessing the bytes. Hosts that pass reliably earn a higher payment tier; hosts that start failing get their shard **automatically rebuilt somewhere else** before the user ever notices an outage. I was careful never to oversell it — it makes cheating *expensive*, not impossible, and I kept an honest list of the ways a determined attacker could still game it.
+**Proof of storage.** This was my favourite problem. If I'm paying a host to store a shard, what stops them from quietly deleting it and just *pretending* it's still there? My answer was a **Merkle challenge-response** system.
+
+The coordinator keeps only the Merkle **root**. Every few hours it sends a fresh random nonce, and the chunk you must prove is *derived from that nonce* — so the host can't precompute which chunk to keep:
+
+~~~python
+def gen_challenge(n_chunks):
+    nonce = os.urandom(32)
+    idx   = int.from_bytes(_H(nonce)[:4], 'big') % n_chunks
+    return nonce, idx      # host cannot predict idx before seeing the nonce
+~~~
+
+The host then has to return `SHA256(nonce || chunk)` **and** a Merkle path back to the root, within a timeout. Both checks are needed, and that's the subtle part: a hash alone can be fabricated from invented bytes, so only the Merkle proof actually requires *possessing the real data*.
+
+There's one more trap I fell into. My first version stored the left/right direction as a flag inside the proof, which meant verification never really used the index — so you could prove the *wrong* chunk and still pass, defeating the entire point. The fix is that direction must be **derived from the index** at each level, never trusted from the proof:
+
+~~~python
+def check_proof(root, chunk_bytes, idx, proof):
+    """Direction at each level is DERIVED from idx, not stored in the proof,
+    so passing the wrong idx genuinely changes the hash and fails."""
+~~~
+
+Hosts that pass reliably earn a higher payment tier; hosts that start failing get their shard **automatically rebuilt elsewhere** before the user notices. And I never oversold it — the script literally simulates four host archetypes (honest, fabricator, partial, cloud-outsourced) and ends with an explicit "is this foolproof?" breakdown of what's cryptographically prevented versus merely economically discouraged versus genuinely unsolved.
 
 **Follow-the-sun and the phone problem.** Phones are terrible always-on servers: batteries, spotty wifi, and operating systems that aggressively kill background apps. So the rule was that a phone only acts as a host when it's **plugged in and on wifi** — for most people, overnight. Then you **pair time zones on opposite sides of the planet**, so one region's sleeping, charging phones serve another region's wide-awake users. A US-and-Southeast-Asia pairing, for instance, covers nearly the whole clock between them. I loved that piece of design.
 <br />

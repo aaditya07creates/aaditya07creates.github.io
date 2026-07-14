@@ -33,13 +33,51 @@ The flow, end to end, looks like this:
 ## The part I'm proud of: the block system
 The heart of StudyPages is that the AI doesn't write me a page, it writes me a **structured description** of a page, and my app decides how to draw it. Every block has a type (`heading`, `callout`, `chart`, `mcq`, `timeline`, `code`, and so on), and each type has its own renderer function registered in a big lookup table.
 
-The nice thing about that design is how cleanly it grows: to add a brand-new kind of card, I write one render function, register it, and describe it in the system prompt so the model knows it's allowed to use it. It's basically a little plugin system where the "plugins" are card types. That separation, model proposes structured content, app owns how it looks, is the idea I'm most happy with.
+So the model returns something like this, and my app decides what it *looks* like:
+
+~~~json
+{ "blocks": [
+    { "type": "heading",   "text": "The Solar System" },
+    { "type": "callout",   "style": "info", "text": "Jupiter is 2.5x all the others combined." },
+    { "type": "chart",     "chart_type": "bar", "data": [...] },
+    { "type": "mcq",       "question": "Which planet is largest?",
+                           "options": ["Earth", "Jupiter"], "answer": 1 }
+] }
+~~~
+
+Every block type just maps to a render function in one lookup table:
+
+~~~python
+BLOCK_RENDERERS = {
+    'paragraph': render_text,
+    'keypoints': render_keypoints,
+    'example':   render_example,
+    'mcq':       render_mcq,
+    'callout':   render_callout,
+    'timeline':  render_timeline,
+    ...
+}
+~~~
+
+The nice thing about that design is how cleanly it grows: to add a brand-new kind of card I write one render function, register it here, and describe it in the system prompt so the model knows it's allowed to emit it. It's basically a little plugin system where the "plugins" are card types. That separation — **the model proposes structured content, the app owns how it looks** — is the idea I'm most happy with, and it means a bad response degrades into a plain paragraph instead of a broken screen.
 <br />
 
 ## The lesson: LLM output is messy
 The thing nobody warns you about is that models rarely hand back clean JSON. They wrap it in explanation, or code fences, or a `<reasoning>` block, or a friendly sentence before the actual data. If you just try to parse the raw response, it blows up constantly.
 
-So a surprising amount of the client is a **robust JSON extractor**: it strips out the reasoning block, unwraps any code fences, and then scans for the first *balanced* JSON object in whatever's left. Getting that reliable, across all the creative ways a model can wrap its answer, was one of the fiddlier problems and a good lesson in never trusting an LLM to follow a format perfectly.
+So a surprising amount of the client is a **robust JSON extractor**. It runs a small gauntlet on whatever comes back:
+
+~~~python
+# 1. strip a <reasoning>...</reasoning> block if the model "thought out loud"
+# 2. unwrap ```json ... ``` fences
+# 3. scan for the FIRST BALANCED {...} object, counting braces,
+#    instead of regexing for the first '{' and the last '}'
+# 4. json.loads that, and only that
+~~~
+
+Step 3 is the one that matters. The obvious approach — grab everything between the first `{` and the last `}` — breaks the moment the model writes a friendly sentence containing a brace, or nests an object, or trails off mid-thought. Counting braces to find a genuinely balanced object is boring, and it's the reason the app stopped crashing.
+
+The lesson generalises: **never trust an LLM to obey a format perfectly.** Ask for structure, then parse defensively like you're reading input from a stranger — because you are.
 
 I also reused a pattern here that I lean on everywhere now: the API key lives on the **Cloudflare Worker**, never inside the app itself. Same reasoning as in [PromptEnhance](/2026-07-13-PromptEnhance/), you never ship a secret to code that runs on someone else's machine.
 <br />

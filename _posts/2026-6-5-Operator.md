@@ -24,18 +24,59 @@ The dream is simple: stop clicking, just *say what you want*. "Find every PDF in
 ## Lesson one: stop parsing text, use real tool-calling
 My first versions had the AI reply with commands wrapped in tags, like `<command>open spotify</command>`, and I'd regex them out and run them. It worked until it very much didn't. The model would forget the format, wrap things in code fences, add a friendly sentence, or half-invent a new syntax, and my brittle parser would choke.
 
-The big rewrite (v5) threw all of that out and moved to **native function-calling** — the structured tool APIs that Mistral and Gemini expose. Now the AI doesn't *describe* an action in prose I have to decode; it emits a real, typed tool call against a JSON schema I defined. I have about 14 tools (`run_shell`, `read_file`, `keyboard`, `manage_window`, `browser`, `remember`, and so on), and the model picks one, I run it, feed the result back, and it decides the next step. A task loops automatically until it's done. Moving from "parse the AI's text" to "the AI calls my functions" was the single biggest reliability jump in the whole project, and it's the lesson I'd hand anyone building an agent today.
+The big rewrite (v5) threw all of that out and moved to **native function-calling** — the structured tool APIs that Mistral and Gemini expose. Now the AI doesn't *describe* an action in prose I have to decode; it emits a real, typed tool call against a JSON schema I defined. I have about 14 tools (`run_shell`, `read_file`, `keyboard`, `manage_window`, `browser`, `remember`, and so on).
+
+The whole agent is really just this loop:
+
+~~~
+send the user's message
+  ↓
+model replies with tool_calls  ──→  for each call:
+                                      safety.assess(name, args)
+                                      execute it
+                                      feed the result back
+  ↓
+repeat until the model answers in plain text  (cap: 8 iterations)
+~~~
+
+The part that surprised me is what you get for free. **Failed tool results just flow back into the conversation**, so the model reads its own error and self-corrects on the next turn. I never wrote retry logic, or a re-planning step, or error-recovery machinery — deleting all of that and simply telling the model the truth about what happened worked better than anything I'd hand-rolled.
+
+Moving from "parse the AI's text" to "the AI calls my functions" was the single biggest reliability jump in the project, and it's the lesson I'd hand anyone building an agent today.
 <br />
 
 ## Lesson two: giving an AI your keyboard is terrifying
 Once the thing could actually run shell commands and press keys, I had a small existential moment: I'd handed a language model the keys to my computer. One hallucinated `rm -rf` equivalent and my day is ruined.
 
-So I built a **safety layer** that classifies every single action into one of four tiers before it runs:
+So I built a **safety layer**. Every single tool call gets assessed *before* it runs and lands in one of four tiers:
+
+~~~python
+class RiskTier(Enum):
+    SAFE      = "safe"       # runs automatically
+    CAUTION   = "caution"    # requires confirmation
+    DANGEROUS = "dangerous"  # confirmation, shown prominently
+    BLOCKED   = "blocked"    # never runs, no matter what
+~~~
 
 - **Safe** (listing files, reading, web search, opening apps) runs automatically.
 - **Caution** (injecting keystrokes, killing a process, `pip install`) asks first.
 - **Dangerous** (deleting files, running a script, editing the registry) asks, loudly.
-- **Blocked** (recursively deleting system folders, `format`, disabling Defender, download-and-run) is hard-denied and *never* runs, no matter what the AI decides.
+- **Blocked** is hard-denied and *never* runs, no matter what the AI decides or how the user confirms.
+
+That last tier is the one I care about most. Writing the denylist forced me to actually enumerate what "catastrophic" means on Windows, and it's a genuinely interesting list:
+
+~~~python
+BLOCKED_PATTERNS = [
+    (r'\bformat(?:\.com)?\s+[a-z]:',      "Formats a drive"),
+    (r'\bcipher\b.*/w',                    "Wipes disk free space"),
+    (r'\bbcdedit\b',                       "Modifies boot configuration"),
+    (r'\b(?:set|add)-mppreference\b',      "Modifies Windows Defender settings"),
+    (r'\breg\s+add\b.*\b(?:run|runonce)\b',"Registry autorun persistence"),
+    (r'-(?:e|enc|encodedcommand)\s+[a-z0-9+/=]{16,}', "Encoded PowerShell command"),
+    # recursive delete of a system path or drive root...
+]
+~~~
+
+Note what's in there beyond "don't delete everything": **autorun registry keys**, **scheduled tasks**, **disabling Defender**, **base64-encoded PowerShell**. Those aren't destructive so much as *persistence and evasion* — the moves malware makes. I wasn't worried the model was malicious; I was worried it would helpfully reach for one of them to "make sure the task runs next time." A tool that can write scripts and press keys shouldn't be one clever idea away from installing itself into your boot sequence.
 
 Failed and blocked actions get fed back to the model too, so instead of crashing it just self-corrects and tries a safer path. Designing that denylist made me think way harder about what "catastrophic" actually looks like on Windows than I ever expected to.
 <br />
