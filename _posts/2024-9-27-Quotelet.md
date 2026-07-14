@@ -1,140 +1,95 @@
 ---
 layout: post
 title: Quotelet
-subtitle: An automated youtube A.I. channel
+subtitle: A YouTube channel that runs itself
 cover-img: /assets/img/Quotelet_banner.png
 thumbnail-img: /assets/img/Quotelet_logo.png
-
 share-img: /assets/img/path.jpg
 tags: [Youtube, Python, AI]
 author: Aaditya Bhave
 ---
 <br />
 
-## An automated A.I. channel ##
-For the past year we've seen a lot of A.I. generated content on youtube. Now there is a difference between A.I. generated and automation we must understand first, A.I. (artificial intelligence) generated content is the content A.I. thinks of, for example a script for a video, the thumbnail or even the voiceover. Automated on the other hand is making the process autonomous or requiring minimum human intervention. Keep in mind I have written "automated A.i. channel" and not "A.I. automated channel" since A.I. is not the one that is automating the process. Thats enough of saying A.I. for now. Check out the channel [here!](https://www.youtube.com/@Quotelet1/shorts)
+## A channel that runs itself ##
 
-In this project i've explored multiple ways of doing both A.I. integration and automation.
+[Quotelet](https://www.youtube.com/@Quotelet1/shorts) is a YouTube Shorts channel that generates and posts its own videos, with almost no input from me once it's set up. You run one Python script, tell it how many videos you want, and it writes them, builds them, and uploads them straight to YouTube.
 
-## Project outline
-Basically being lazy leads you to want to create a project like this, my goal is to create a youtube channel that doesnt require much or any input from me after it's set up.
-When you want to create an automated channel you need to sacrifice either A.I. and automation or quality, i've explored many combinations of both and in the end chose what I liked the most. For this project i've used python to make the script for generating the videos. The terms used in the project are going to be pretty basic for the general public to understand.
+Honest origin story: I made it because I was lazy, lol. I liked the *idea* of running a YouTube channel a lot more than the idea of actually sitting down and making videos for one. So instead of doing the boring repetitive part, I spent way more effort building a program to do it for me. That's the good kind of lazy, the kind where you'd rather build a machine to do your chores than just do the chores.
 
-
-## How to make a youtube video
-
-Now first let us discuss the basics, i've chosen to make youtube shorts to keep the project simple and easy. The topic for our youtube channel will be quotes.
-
-{: .box-note}
-**Note:**
-   Its good to stick to a particular theme and topic to attract returning viewers and to gain subscribers. The youtube algorithm likes these sort of channels.
-
+Quick distinction, because people mix these up: **AI-generated** means the AI *thinks up* the content (a script, a quote, a thumbnail), while **automation** means the *process* runs itself. Quotelet is really an automation project with AI bolted on where it helps, not an "AI channel" in the buzzword sense. This project was me exploring exactly where each one earns its place.
 <br />
 
-To make a youtube video (shorts) about a topic (quotes) there is a process.
-* Search for a quote in a book or online
-* Look for a background video to make video attractive
-* Find a fitting audio
-* Put everything together in and editing software
-* Upload it to youtube
+## The one real tradeoff
+Here's the thing I kept running into: with a project like this you're always trading between **automation, AI, and quality**, and you rarely get all three. Fully automate a step and the quality often drops. Insist on quality and you have to do that step by hand. Almost every decision below is me picking a side of that triangle on purpose, and I think the picks are what made the channel actually watchable.
 
-Well it looks pretty simple, let's get to making our channel.
+The topic is **quotes**, and I stuck to Shorts to keep it tight.
 
+{: .box-note}
+**Note:** Picking one clear theme and sticking to it matters. Returning viewers and the algorithm both reward a channel that's *about* something.
 
-## Searching for a quote
-The first step for a quotes channel is to search for a quote (obviously).
-You can read a book of quotes, search online on a website, or look at your social media's good morning messages.
-Well I chose to ask A.I. for my quotes. Now there are many LLM models out there like google's Gemini, meta's Llama, openai's ChatGPT. We can directly start a conversation and request a quote from there, but this is long and tiring (for me). So I decided to use an API. An API is like a way to ask one of the LLMs from a script or peice of code without needing to visit the website. It requires a "key" that is like a password to understand who is accessing the model and how much. I decided to go with ChatGPT, that failed terribly. Using a model requires a currency called "tokens" most of the time, and i had none. They used to give free tokens for trials but they stopped recently :c and required billing which i was not ready for. Then i decided to use another LLM hugging face, this model gave me an API for free :D (with a per-day limit of course). I put this into a simple python script after importing some libraries to ask for a quote, here was my prompt.
+Every video comes down to the same pipeline: find a quote, find a background clip, find fitting audio, assemble it, and upload it. Let's walk it.
+<br />
+
+## Step 1: the quote
+I let AI write the quotes. You *can* just open ChatGPT and ask, but I wanted this callable from code, so I went the **API** route (an API lets a script talk to a model directly, using a "key" as its password).
+
+First I tried ChatGPT's API. That died fast, most models charge per "token," the free trial credits had just been discontinued, and I wasn't about to set up billing for a quotes bot. So I switched to a **Hugging Face** model that gave me a free API (with a daily limit). My prompt was simple:
 
 ~~~
 Give me a quote that is inspirational/sad/heartwarming along with the author's name.
 It should be one line long.
 ~~~
 
-Its response was something like this.
-
-~~~
-Here is your quote
-"The only way to do great work is to love what you do"
-This quote was given by Steve Jobs at a 2005 commencement speech at Stanford University.
-Would you like some more quotes?
-~~~
-
-Now if I wanted to automate everything and not look at each step i couldn't have it giving answers like this, it should have had a proper format and be easy to add to the video.
-I tried redesigning the prompt alot but it didn't work out, I knew the same would happen with other LLMs too and they might give the same quote twice. So I decided to go for quality here in this step than 100% automation, I asked ChatGPT to give me a list of 100 quotes in the form of a CSV (comma seperated values) file according to my need. This was great, the format was like this:
+The problem was the *shape* of the answers. The model would reply with "Here is your quote…" and a follow-up question, which is useless if a script has to drop it straight into a video. I fought the prompt for a while, then made the pragmatic call: **quality over automation here.** I had ChatGPT generate a clean **CSV of 100 quotes** up front, in an exact format, and worked from that list instead of hitting a model per video:
 
 ```
 "Quote text", "Author", "n"
 ```
-The quote text is followed by the author name and then a letter "y" or "n" but we will come back to that later.
 
-Since the quote collection was done it was time to move to the next step, a rather complicated one.
+The `"n"` is a used/unused flag, I'll come back to it.
+<br />
 
-## Looking for background videos
-Our quotes are inspirational mostly and calming so we need a fitting background to make sure viewers don't scroll past. It could be an image or video but I decided to go for a video to make it a bit more attention grabbing. I searched online for some APIs like we did for the LLMs but this time to retreive videos from the site.
+## Step 2: the background
+Inspirational quotes need a calm, eye-catching background so people don't scroll past, so I went with video over a static image. I looked for stock-footage APIs and found a few good free ones, **Pexels** and **Pixabay** among them. Pixabay refused to return footage for reasons I never figured out; **Pexels** worked, letting me pull clips by keyword at the 9:16 Shorts ratio.
 
-I found a couple of free and awesome APIs like Pexels and Pixbay (a few others too). I began using Pixbay but it wasn't retrieving footage for some reason, i'm still not sure why. Then I looked at Pexels, this API worked well, i was able to download videos based on the keywords and dimensions (a youtube shorts video dimension is 9:16). I came across a problem though, the downloading was working well but the videos didn't always fit the theme and some of them were too long. 
+But the auto-pulled clips were hit and miss, off-theme or too long. Same crossroads, same answer: **quality over automation.** I spent a few hours hand-picking **29 non-copyrighted clips** that actually fit the vibe, and the channel is better for it.
+<br />
 
-Now we arrive at the crossroads again, do we want quality or automation. I decided to go for quality, by that I mean I spent hours manually choosing and downloading non-copyrighted stock videos that I liked. I collected 29 videos that fit the aspect ratio and asthetics. In the end I feel that it was the best choice because it will help attract even more viewers.
+## Step 3: the audio
+By now I was tired of hunting for APIs, and automated audio selection would've brought its own headaches (wrong mood, wrong length, wrong volume). So I just hand-picked a small set of tracks. Not glamorous, but reliable.
+<br />
 
-## Finding a fitting audio
-Now at this point I was tired of looking for APIs and decided to do manual collection, It would have resulted in problems like long audio selection, audio that doesnt match the theme, or audio that is too loud or too quiet. I looked online and downladed a few songs.
+## Step 4: assembling the video
+This is where the real automation lives. Using **MoviePy** (editing, text, audio, compositing), **Pillow** (drawing the text overlay), **NumPy** (MoviePy's data backend) and **os** (file handling), the script builds a finished Short on its own. The core pieces:
 
-## Putting everything together
-Well now the real automation begins. What I plan to do is use python to combine the audio and video and add a text overlay. So I made a basic folder structure on my computer to keep things organized.
+- **`wrap_text`** breaks a long quote across lines by measuring each word and folding when it won't fit.
+- **`create_text_clip`** draws the quote, author, and watermark onto a semi-transparent dark panel so the text stays readable over any background, then hands it back as a MoviePy clip.
+- **`create_short_video`** is the engine: pick a random unused quote, pick a random background and strip its audio, pick a random track, loop and trim the video to the audio's length, composite the text on top, and render at 60fps across 16 CPU threads.
+- **`update_quote_status`** flips that quote's flag from `"n"` to `"y"` so it's never reused.
 
-* automatedvidgen
-   * audios
-   * finishedvideos
-   * graphics
-      * Banner image
-      * Logo image
-   * videos
-   * quotes.txt
-   * quotesreset.txt
-   * script.py
-
-With the folder structure done we move onto the main code.
-
-I imported the libraries we needed: 
-* MoviePy to handle video editing, adding text, adding audio and combining clips
-* PIL (pillow) to create images that contain the text overlays
-* Numpy which is required by moviepy to process data
-* OS for working with directories and file paths
-
-Let us discuss the functions I wrote now.
-
-### 1. wrap_text(text, font, max_width)
-This function is for breaking up a long quote onto multiple lines by iterating through each word and checking if it fits in the line. It finally returns the wrapped text with newline characters to represent split lines.
-
-### 2. create_text_clip(text, author, quote_fontsize, author_fontsize, ai_text_fontsize, color, size, padding, duration)
-This chonky function is for creating the text clip that will be added to the video. First i create a dark grey background that will be made transparent to make sure the text is visible when on top of the video. I call the wrap_text function to deal with the text wrapping, then i position all the texts and draw them using the ImageDraw.Draw method. The image is finally converted into a numpy array and returned to be used as a MoviePy clip.
-
-### 3. create_short_video(automatedvideogen_path)
-This is our main function which handles the video creation. It reads the quotes from the quotes.txt and selects a quote by random, next it selects a random video from the videos folder and removes the audio. A random audio is selected from the audios file and the video is looped and cut according to the length of the audio automatically. It forms a new clip with the CompositeVideoClip function to combine the clips and audios. The final file is finally compiled using 16 threads of my CPU for speed at 60fps and is stored in the finishedvideos folder with its file name created dynamically using the generate_ouput_file_name function I wrote.
-
-### 4. update_quote_status
-This function aimply sets the status of the quote in the quotes.txt to yes indicating we musn't use it in a video again.
+Run it and it just asks how many to make:
 
 ~~~
-"Quote text", "Author", "y"
-~~~
-### 5. Finishing up
-The program loops the number of time you want it to create how many ever videos you want with a prompt when you run the program.
-
-~~~
-How many videos would you like to generate? 5
+How many videos would you like to generate and upload? 5
 ~~~
 
 {: .box-warning}
-**Warning:** Run the program directly in terminal and not in Python IDLE or Pycharm terminal. Running it in here will cause it to begin video generation but the process will never complete and will be stuck or take a lot of time.
+**Warning:** Run this straight from a real terminal, not the PyCharm or IDLE console, otherwise rendering starts but never finishes.
+<br />
 
-## Conclusion
-This project was pretty fun, it gave me a chance to learn and apply my knowledge about APIs, automation and also about youtube channels. Initially it takes some time to set-up but after you complete it you can create videos in bulk. You can see the final result [here!](https://www.youtube.com/@Quotelet1/shorts)
+## Step 5: uploading itself (the newest piece)
+For a long time the script stopped at a folder full of finished videos, and I'd still upload them by hand, which meant it wasn't *really* automated. The latest version fixes that: it uploads to YouTube on its own using the **YouTube Data API**.
+
+I authorise the channel once with an OAuth credentials file, and after that `upload_video_to_youtube` posts each finished clip as a **public Short**, with a title, a big keyword-loaded description for reach, and the "not made for kids" flag set. That was the missing link. Now the loop is genuinely end to end: tell it a number, and it *writes, builds, and publishes* that many videos in one run, no hand-holding.
+<br />
+
+## What I got out of it
+Quotelet taught me a surprising amount, real API work, OAuth and the YouTube upload flow, video processing with MoviePy, and above all a feel for that automation-vs-AI-vs-quality tradeoff and when it's worth doing a step by hand. The setup takes a while, but once it's built I can produce videos in bulk with one command. See the results [here](https://www.youtube.com/@Quotelet1/shorts).
+<br />
 
 ## Code
 
-{% highlight javascript linenos %}
+{% highlight python linenos %}
 from moviepy.editor import *
 import random
 from PIL import Image, ImageDraw, ImageFont
@@ -144,7 +99,7 @@ from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
 from google.oauth2.credentials import Credentials
 
-description = "#ShortVideo #InspirationalVideo #MotivationalVideo #QuoteVideo #VideoEditing #TextOnVideo #CinematicVideo #ShortClips #MovieClips #VideoQuotes #BestQuotes #MotivationalQuotes #InspirationalQuotes #FamousQuotes #DailyQuotes #QuoteOfTheDay #VideoArt #VideoCreation #CreativeVideo #ArtisticVideo #InspirationalQuotes #MotivationalQuotes #QuotesFromFamousPeople #LifeQuotes #SuccessQuotes #LoveQuotes #HappinessQuotes #WisdomQuotes #QuoteOnLife #AuthorQuotes #InspirationalSayings #LifeLessons #LifeAdvice #LifeMotivation #PositiveQuotes #PowerfulQuotes #DeepQuotes #ThoughtfulQuotes #EncouragingQuotes #MoviePy #VideoEditor #PythonVideoEditing #CompositeVideo #TextAnimation #VideoClipGenerator #ShortFilm #MoviePyEditor #AIGeneratedVideo #TextClip #InspiringVideo #MotivationDaily #QuotesInMotion #QuoteOverlay #Quotelet #FamousAuthors #QuoteDesign #CreativeEditing #VideoOfTheDay #PositiveVibes #MotivationMonday #ThoughtOfTheDay #QuoteLife #TextOverlay #VideoCreationTool #PythonEditing #VideoMaker #InspirationDaily #TextEffects #QuoteOnScreen #QuoteGraphics #FamousQuoteVideo #MotivationalSpeech #QuoteToLiveBy #QuoteWallpaper #WordsOfWisdom #VideoInspiration #ShortQuoteVideo #VideoMotivation #WisdomInWords #LifeWisdom #EmpowermentQuotes #EncouragementVideo #SuccessMindset #GoalsInLife #PositiveMindset #MoviePyEditing #VideoWithText #PowerfulWords #ShortInspiration #DailyMotivation #SuccessQuotesDaily #SelfGrowth #LifeInspiration #VideoProduction #QuotesThatInspire #InspirationalClip #MindsetMatters #MindsetQuotes #EmpowermentVideo #LifeChangingQuotes #QuotesDaily #InspirationalWords #LifeQuotes #WisdomQuotes #PowerfulQuotes #SuccessDaily #MotivationInMinutes #UpliftingWords #LifeGoals #PositiveThinking #PersonalGrowth #InspirationQuotes #VideoEditing #CreativeVideos #QuoteletVideo #MindsetShift #EncouragingWords #VideoInspo #QuoteCreatives #PositiveQuotes #TextOnScreen #QuotesWithVideo #ShortInspirationalVideo #WisdomOfTheDay #FamousQuotesDaily #QuoteMastery #InspirationalShorts #MotivationalQuotes #SuccessMotivation #AchievementQuotes #GrowthMindset #SelfImprovement #LifeChangingWords #DreamBig #DailyQuotes #InspirationalStory #SuccessJourney #VideoInspiration #LifeChangingInspiration #DreamQuotes #DailyWordsOfWisdom #MindsetGoals #PurposeDrivenLife #TextVideo #QuoteLovers #TextArtVideo #SuccessDriven #EncouragementQuotes #WisdomWords #MotivationBoost #QuotesOfGreatness #PositiveVibesOnly #LifeMantra #GoalOriented #FocusOnSuccess #TextAnimation #MindsetMotivation #WordsOfEncouragement"
+description = "#ShortVideo #InspirationalVideo #MotivationalVideo #QuoteVideo #Quotelet #MotivationalQuotes #InspirationalQuotes #DailyQuotes #QuoteOfTheDay #WordsOfWisdom #PositiveVibes #LifeQuotes #SuccessQuotes"
 
 # Wrap text function to fit within the specified width
 def wrap_text(text, font, max_width):
@@ -168,10 +123,9 @@ def wrap_text(text, font, max_width):
     return "\n".join(lines)
 
 
-
 # Create a text clip with a quote, author, AI text, and watermark
 def create_text_clip(text, author, quote_fontsize=60, author_fontsize=40, ai_text_fontsize=30, color='white', size=(1280, 720), padding=100, duration=30):
-    img = Image.new("RGBA", size, (30, 30, 30, 180)  # Dark gray background
+    img = Image.new("RGBA", size, (30, 30, 30, 180))  # Dark gray background
     draw = ImageDraw.Draw(img)
 
     # Load fonts for text
@@ -186,7 +140,7 @@ def create_text_clip(text, author, quote_fontsize=60, author_fontsize=40, ai_tex
     # Wrap the quote text to fit
     wrapped_text = wrap_text(text, quote_font, drawing_area_width)
     author_text = f"~ {author}"
-    ai_text = "An automated A.I. channel"  # Updated text here
+    ai_text = "An automated A.I. channel"
 
     # Draw the text onto the image
     quote_bbox = draw.textbbox((0, 0), wrapped_text, font=quote_font)
@@ -250,7 +204,7 @@ def create_short_video(automatedvidgen_path):
 
     selected_video = random.choice(video_files)
     video_path = os.path.join(video_folder, selected_video)
-    video = VideoFileClip(video_path).without_audio()  # Remove the video’s audio
+    video = VideoFileClip(video_path).without_audio()  # Remove the video's audio
 
     # Create text overlay for the video
     txt_clip = create_text_clip(quote_text, author, quote_fontsize=70, author_fontsize=40, color='white', size=video.size)
@@ -326,7 +280,6 @@ def upload_video_to_youtube(video_path, credentials_path):
 
     response = request.execute()
     print(f"Video uploaded successfully: {response['id']}")
-
 
 
 # Main program to generate and upload videos

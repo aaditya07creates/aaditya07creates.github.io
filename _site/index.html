@@ -5,27 +5,40 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.25, shrink-to-fit=no">
 
-  
+  <!-- Custom theme fonts (non-blocking: page renders immediately, fonts swap in) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Space+Mono:wght@400;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Space+Mono:wght@400;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap">
+  </noscript>
 
   
 
   
 
-  <title>Random Access Memories | Aaditya's Space</title>
+  
+
+  <title>Random Access Memories</title>
 
   
   
   <meta name="author" content="Aaditya Bhave">
   
 
-  <meta name="description" content="A space where I share my projects, ideas and opinions.">
+  <meta name="description" content="Everything I build, and everything it teaches me.">
 
+  
+  <meta name="theme-color" content="#17130e">
   
 
   
 
   
-  <link rel="alternate" type="application/rss+xml" title="Aaditya's Space" href="http://localhost:4000/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="Random Access Memories" href="http://localhost:4000/feed.xml">
   
 
   
@@ -72,20 +85,22 @@
   
 
   
-
-  
-  
-  
-
+    
+      <link rel="stylesheet" href="/assets/css/custom.css">
+    
   
 
   
-  <meta property="og:site_name" content="Aaditya's Space">
-  <meta property="og:title" content="Random Access Memories | Aaditya's Space">
-  <meta property="og:description" content="A space where I share my projects, ideas and opinions.">
+  
+  
 
   
-  <meta property="og:image" content="http://localhost:4000/assets/img/avatar-icon.png">
+
+  
+  <meta property="og:site_name" content="Random Access Memories">
+  <meta property="og:title" content="Random Access Memories">
+  <meta property="og:description" content="Everything I build, and everything it teaches me.">
+
   
 
   
@@ -100,11 +115,9 @@
   <meta name="twitter:site" content="@">
   <meta name="twitter:creator" content="@">
 
-  <meta property="twitter:title" content="Random Access Memories | Aaditya's Space">
-  <meta property="twitter:description" content="A space where I share my projects, ideas and opinions.">
+  <meta property="twitter:title" content="Random Access Memories">
+  <meta property="twitter:description" content="Everything I build, and everything it teaches me.">
 
-  
-  <meta name="twitter:image" content="http://localhost:4000/assets/img/avatar-icon.png">
   
 
   
@@ -124,7 +137,7 @@
   
 
 
-  <nav class="navbar navbar-expand-xl navbar-light fixed-top navbar-custom top-nav-regular"><a class="navbar-brand" href="http://localhost:4000/">Aaditya's Space</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+  <nav class="navbar navbar-expand-xl navbar-light fixed-top navbar-custom top-nav-regular"><a class="navbar-brand" href="http://localhost:4000/">Random Access Memories</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
@@ -144,14 +157,6 @@
 
   
 
-  
-    <div class="avatar-container">
-      <div class="avatar-img-border">
-        <a href="http://localhost:4000/about">
-          <img alt="Navigation bar avatar" class="avatar-img" src="/assets/img/avatar-icon.png" />
-        </a>
-      </div>
-    </div>
   
 
 </nav>
@@ -189,11 +194,16 @@
     <div class="row">
       <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
         <div class="page-heading">
-          <h1>Random Access Memories</h1>
+          
+          <span class="title-with-pun">
+            <h1>Random Access Memories</h1>
+            <span class="pun-line">(pun intended)</span>
+          </span>
+          
           
             
               <hr class="small">
-              <span class="page-subheading">A space where I share my projects, ideas and opinions.</span>
+              <span class="page-subheading">Everything I build, and everything it teaches me.</span>
             
           
           
@@ -207,666 +217,508 @@
 </div>
 
 
+  
+    <div class="container-md">
+  <div class="row">
+    <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+      <div class="home-hero">
+        <p class="hero-eyebrow">Maker · Writer · Tinkerer</p>
+        <p class="hero-lead">
+          Hardware, AI products, games, a storage startup, and plenty of
+          half-mad experiments. This is where I write up what I make, and
+          what I learn making it.
+        </p>
+        <div class="hero-btns">
+          <a class="btn-hero btn-hero-solid" href="/about">About Me</a>
+          <a class="btn-hero btn-hero-ghost" href="https://github.com/aaditya07creates" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
 
 </header>
 
 
-<main class=" container-md ">
+<main class=" container-fluid ">
   <div class="row">
-    <div class=" col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 ">
+    <div class=" col ">
       
 
-      
+      <div class="home-wrap">
+
+<p class="section-eyebrow">Projects &amp; Write-ups</p>
+<p class="section-intro">A collection of things I've made — hardware, software, and the odd experiment. Click any card for the full story, photos, and code.</p>
 
 
-<div class="posts-container"> </div>
-<!-- role="list" needed so that `list-style: none` in Safari doesn't remove the list semantics -->
-<ul class="posts-list list-unstyled" role="list">
+
+
+<div class="projects-grid">
   
-  <li class="post-preview">
-    <article>
-      
+  <div class="project-card">
+
+    
+      <div class="project-thumb" style="background-image: url('/assets/img/promptenhance-thumb.png');"></div>
+    
+
+    <div class="project-body">
+      <h3>PromptEnhance</h3>
 
       
-
-      <a href="http://localhost:4000/2025-02-03-Tech-Diplomacy/">
-        <h2 class="post-title">Tech Diplomacy</h2>
-
-        
-          <h3 class="post-subtitle">
-          Tech Diplomacy; Bridging The Tech Divide
-          </h3>
-        
-      </a>
-
-      
-        <span>By <strong>Aaditya Bhave</strong></span>
-      
-      <p class="post-meta">
-        
-        Posted on February 3, 2025
-      </p>
-
-      
-      <div class="post-image post-image-small">
-        <a href="http://localhost:4000/2025-02-03-Tech-Diplomacy/" aria-label="Thumbnail">
-          <img src="http://localhost:4000/assets/img/techdiplomacyicon.jpg" alt="Post thumbnail">
-        </a>
+      <div class="project-tags">
+        <span>AI</span><span>Chrome Extension</span><span>Cloudflare</span><span>Stripe</span>
       </div>
       
 
-      
-      
-      <div class="post-image post-image-short">
-        <a href="http://localhost:4000/2025-02-03-Tech-Diplomacy/" aria-label="Thumbnail">
-          <img src="http://localhost:4000/assets/img/techdiplomacyicon.jpg" alt="Post thumbnail">
-        </a>
-      </div>
-      
+      <p>My first real product. A Chrome extension that turns rough prompts into professionally engineered ones in one click, inside any AI. Built with Cloudflare and Stripe, live with a free tier and paid plans.</p>
 
-      <div class="post-entry">
+      <div class="project-links">
         
-        
-
-        
-        
-          <a href="http://localhost:4000/2025-02-03-Tech-Diplomacy/" class="post-read-more">[Read&nbsp;More]</a>
-        
-      </div>
-      
-
-      
-      <div class="blog-tags">
-        <span>Tags:</span>
-        <!-- role="list" needed so that `list-style: none` in Safari doesn't remove the list semantics -->
-        <ul class="d-inline list-inline" role="list">
           
-          <li class="list-inline-item">
-            <a href="http://localhost:4000/tags#Tech">Tech</a>
-          </li>
           
-          <li class="list-inline-item">
-            <a href="http://localhost:4000/tags#Opinions">Opinions</a>
-          </li>
+          <a class="pl-primary" href="/2026-07-13-PromptEnhance/">Read write-up →</a>
           
-        </ul>
+        
+        
+          <a class="pl-ghost" href="https://chromewebstore.google.com/detail/promptenhance/ajfnkdejpiigjhedggbinfpnnaboilho" target="_blank" rel="noopener">Live / Demo</a>
+        
+        
       </div>
-      
+    </div>
 
-    </article>
-  </li>
+  </div>
   
-  <li class="post-preview">
-    <article>
-      
+  <div class="project-card">
+
+    
+      <div class="project-thumb" style="background-image: url('/assets/img/operator-thumb.png');"></div>
+    
+
+    <div class="project-body">
+      <h3>OPERATOR</h3>
 
       
-
-      <a href="http://localhost:4000/2025-01-30-Will-China-beat-US-in-the-A.I.-race/">
-        <h2 class="post-title">Will China beat US in the A.I. race?</h2>
-
-        
-          <h3 class="post-subtitle">
-          The race for dominance in artificial intelligence
-          </h3>
-        
-      </a>
-
-      
-        <span>By <strong>Aaditya Bhave</strong></span>
-      
-      <p class="post-meta">
-        
-        Posted on January 30, 2025
-      </p>
-
-      
-      <div class="post-image post-image-small">
-        <a href="http://localhost:4000/2025-01-30-Will-China-beat-US-in-the-A.I.-race/" aria-label="Thumbnail">
-          <img src="http://localhost:4000/assets/img/US_China_AI.png" alt="Post thumbnail">
-        </a>
+      <div class="project-tags">
+        <span>AI</span><span>Agents</span><span>Python</span><span>Open Source</span>
       </div>
       
 
-      
-      
-      <div class="post-image post-image-short">
-        <a href="http://localhost:4000/2025-01-30-Will-China-beat-US-in-the-A.I.-race/" aria-label="Thumbnail">
-          <img src="http://localhost:4000/assets/img/US_China_AI.png" alt="Post thumbnail">
-        </a>
-      </div>
-      
+      <p>A talk-to-your-computer AI agent for Windows, built before the big labs shipped theirs. Natural-language tool-calling to control files, apps, the keyboard and your real Chrome, with risk-tiered safety, a tiered memory system, and offline voice. Open source.</p>
 
-      <div class="post-entry">
+      <div class="project-links">
+        
+          
+          
+          <a class="pl-primary" href="/2026-06-05-Operator/">Read write-up →</a>
+          
         
         
-
         
-        
-          <a href="http://localhost:4000/2025-01-30-Will-China-beat-US-in-the-A.I.-race/" class="post-read-more">[Read&nbsp;More]</a>
+          <a class="pl-ghost" href="https://github.com/aaditya07creates/Operator" target="_blank" rel="noopener">GitHub</a>
         
       </div>
-      
+    </div>
 
-      
-
-    </article>
-  </li>
+  </div>
   
-  <li class="post-preview">
-    <article>
-      
+  <div class="project-card">
+
+    
+      <div class="project-thumb" style="background-image: url('/assets/img/macropadthumbnailimg.jpg');"></div>
+    
+
+    <div class="project-body">
+      <h3>ESP32 Macropad</h3>
 
       
-
-      <a href="http://localhost:4000/2024-11-18-Terminator-visioncopy/">
-        <h2 class="post-title">Terminator Vision</h2>
-
-        
-          <h3 class="post-subtitle">
-          Seeing everything as terminator does
-          </h3>
-        
-      </a>
-
-      
-        <span>By <strong>Aaditya Bhave</strong></span>
-      
-      <p class="post-meta">
-        
-        Posted on November 18, 2024
-      </p>
-
-      
-      <div class="post-image post-image-small">
-        <a href="http://localhost:4000/2024-11-18-Terminator-visioncopy/" aria-label="Thumbnail">
-          <img src="http://localhost:4000/assets/img/crosshair.jpg" alt="Post thumbnail">
-        </a>
+      <div class="project-tags">
+        <span>ESP32</span><span>Bluetooth</span><span>Hardware</span>
       </div>
       
 
-      
-      
-      <div class="post-image post-image-short">
-        <a href="http://localhost:4000/2024-11-18-Terminator-visioncopy/" aria-label="Thumbnail">
-          <img src="http://localhost:4000/assets/img/crosshair.jpg" alt="Post thumbnail">
-        </a>
-      </div>
-      
+      <p>A custom Bluetooth macro deck built on an ESP32. Programmable keys that trigger shortcuts, launch apps, and control software.</p>
 
-      <div class="post-entry">
+      <div class="project-links">
         
-        
-
-        
-        
-          <a href="http://localhost:4000/2024-11-18-Terminator-visioncopy/" class="post-read-more">[Read&nbsp;More]</a>
-        
-      </div>
-      
-
-      
-      <div class="blog-tags">
-        <span>Tags:</span>
-        <!-- role="list" needed so that `list-style: none` in Safari doesn't remove the list semantics -->
-        <ul class="d-inline list-inline" role="list">
           
-          <li class="list-inline-item">
-            <a href="http://localhost:4000/tags#Raspberry pi">Raspberry pi</a>
-          </li>
           
-          <li class="list-inline-item">
-            <a href="http://localhost:4000/tags#OpenCV">OpenCV</a>
-          </li>
+          <a class="pl-primary" href="/2024-06-13-esp32BT-macropad/">Read write-up →</a>
           
-        </ul>
+        
+        
+        
+          <a class="pl-ghost" href="https://github.com/aaditya07creates/esp32-macropad" target="_blank" rel="noopener">GitHub</a>
+        
       </div>
-      
+    </div>
 
-    </article>
-  </li>
+  </div>
   
-  <li class="post-preview">
-    <article>
-      
+  <div class="project-card">
+
+    
+      <div class="project-thumb" style="background-image: url('/assets/img/Quotelet_logo.png');"></div>
+    
+
+    <div class="project-body">
+      <h3>Quotelet</h3>
 
       
-
-      <a href="http://localhost:4000/2024-10-15-handgestures/">
-        <h2 class="post-title">Hand gestures</h2>
-
-        
-          <h3 class="post-subtitle">
-          Using hand gestures to control my laptop
-          </h3>
-        
-      </a>
-
-      
-        <span>By <strong>Aaditya Bhave</strong></span>
-      
-      <p class="post-meta">
-        
-        Posted on October 15, 2024
-      </p>
-
-      
-      <div class="post-image post-image-small">
-        <a href="http://localhost:4000/2024-10-15-handgestures/" aria-label="Thumbnail">
-          <img src="http://localhost:4000/assets/img/nice.png" alt="Post thumbnail">
-        </a>
+      <div class="project-tags">
+        <span>AI</span><span>Python</span><span>YouTube</span>
       </div>
       
 
-      
-      
-      <div class="post-image post-image-short">
-        <a href="http://localhost:4000/2024-10-15-handgestures/" aria-label="Thumbnail">
-          <img src="http://localhost:4000/assets/img/nice.png" alt="Post thumbnail">
-        </a>
-      </div>
-      
+      <p>A fully automated, AI-assisted YouTube channel that generates and publishes short-form quote videos with minimal human intervention.</p>
 
-      <div class="post-entry">
+      <div class="project-links">
         
-        
-
-        
-        
-          <a href="http://localhost:4000/2024-10-15-handgestures/" class="post-read-more">[Read&nbsp;More]</a>
-        
-      </div>
-      
-
-      
-      <div class="blog-tags">
-        <span>Tags:</span>
-        <!-- role="list" needed so that `list-style: none` in Safari doesn't remove the list semantics -->
-        <ul class="d-inline list-inline" role="list">
           
-          <li class="list-inline-item">
-            <a href="http://localhost:4000/tags#OpenCV">OpenCV</a>
-          </li>
           
-        </ul>
+          <a class="pl-primary" href="/2024-09-27-Quotelet/">Read write-up →</a>
+          
+        
+        
+          <a class="pl-ghost" href="https://www.youtube.com/@Quotelet1/shorts" target="_blank" rel="noopener">Live / Demo</a>
+        
+        
+          <a class="pl-ghost" href="https://github.com/aaditya07creates/quotelet" target="_blank" rel="noopener">GitHub</a>
+        
       </div>
-      
+    </div>
 
-    </article>
-  </li>
+  </div>
   
-  <li class="post-preview">
-    <article>
-      
+  <div class="project-card">
+
+    
+      <div class="project-thumb" style="background-image: url('/assets/img/terminator-rig.jpg');"></div>
+    
+
+    <div class="project-body">
+      <h3>Terminator Vision</h3>
 
       
-
-      <a href="http://localhost:4000/2024-09-27-Quotelet/">
-        <h2 class="post-title">Quotelet</h2>
-
-        
-          <h3 class="post-subtitle">
-          An automated youtube A.I. channel
-          </h3>
-        
-      </a>
-
-      
-        <span>By <strong>Aaditya Bhave</strong></span>
-      
-      <p class="post-meta">
-        
-        Posted on September 27, 2024
-      </p>
-
-      
-      <div class="post-image post-image-small">
-        <a href="http://localhost:4000/2024-09-27-Quotelet/" aria-label="Thumbnail">
-          <img src="http://localhost:4000/assets/img/Quotelet_logo.png" alt="Post thumbnail">
-        </a>
+      <div class="project-tags">
+        <span>Raspberry Pi</span><span>OpenCV</span><span>Computer Vision</span>
       </div>
       
 
-      
-      
-      <div class="post-image post-image-short">
-        <a href="http://localhost:4000/2024-09-27-Quotelet/" aria-label="Thumbnail">
-          <img src="http://localhost:4000/assets/img/Quotelet_logo.png" alt="Post thumbnail">
-        </a>
-      </div>
-      
+      <p>A Raspberry Pi wearable that overlays an object-detection HUD on a live camera feed, seeing the world the way the Terminator does.</p>
 
-      <div class="post-entry">
+      <div class="project-links">
+        
+          
+          
+          <a class="pl-primary" href="/2024-11-18-Terminator-visioncopy/">Read write-up →</a>
+          
         
         
-
         
-        
-          <a href="http://localhost:4000/2024-09-27-Quotelet/" class="post-read-more">[Read&nbsp;More]</a>
+          <a class="pl-ghost" href="https://github.com/aaditya07creates/terminator-vision" target="_blank" rel="noopener">GitHub</a>
         
       </div>
-      
+    </div>
 
-      
-      <div class="blog-tags">
-        <span>Tags:</span>
-        <!-- role="list" needed so that `list-style: none` in Safari doesn't remove the list semantics -->
-        <ul class="d-inline list-inline" role="list">
-          
-          <li class="list-inline-item">
-            <a href="http://localhost:4000/tags#Youtube">Youtube</a>
-          </li>
-          
-          <li class="list-inline-item">
-            <a href="http://localhost:4000/tags#Python">Python</a>
-          </li>
-          
-          <li class="list-inline-item">
-            <a href="http://localhost:4000/tags#AI">AI</a>
-          </li>
-          
-        </ul>
-      </div>
-      
-
-    </article>
-  </li>
+  </div>
   
-  <li class="post-preview">
-    <article>
-      
+  <div class="project-card">
+
+    
+      <div class="project-thumb" style="background-image: url('/assets/img/submarine-thumb.png');"></div>
+    
+
+    <div class="project-body">
+      <h3>Co-op Submarine Game</h3>
 
       
-
-      <a href="http://localhost:4000/2024-06-13-esp32BT-macropad/">
-        <h2 class="post-title">ESP32 macropad</h2>
-
-        
-          <h3 class="post-subtitle">
-          My own customisable bluetooth deck
-          </h3>
-        
-      </a>
-
-      
-        <span>By <strong>Aaditya Bhave</strong></span>
-      
-      <p class="post-meta">
-        
-        Posted on June 13, 2024
-      </p>
-
-      
-      <div class="post-image post-image-small">
-        <a href="http://localhost:4000/2024-06-13-esp32BT-macropad/" aria-label="Thumbnail">
-          <img src="http://localhost:4000/assets/img/macropadthumbnailimg.jpg" alt="Post thumbnail">
-        </a>
+      <div class="project-tags">
+        <span>Roblox</span><span>Game Dev</span><span>Lua</span><span>Architecture</span>
       </div>
       
 
-      
-      
-      <div class="post-image post-image-short">
-        <a href="http://localhost:4000/2024-06-13-esp32BT-macropad/" aria-label="Thumbnail">
-          <img src="http://localhost:4000/assets/img/macropadthumbnailimg.jpg" alt="Post thumbnail">
-        </a>
-      </div>
-      
+      <p>My biggest project. A co-op submarine simulator on Roblox where a crew shares one boat and mans the consoles surrounding them. Researched from real subs, picked up by the Roblox algorithm, and a deep lesson in game design and clean architecture.</p>
 
-      <div class="post-entry">
+      <div class="project-links">
         
-        
-
-        
-        
-          <a href="http://localhost:4000/2024-06-13-esp32BT-macropad/" class="post-read-more">[Read&nbsp;More]</a>
-        
-      </div>
-      
-
-      
-      <div class="blog-tags">
-        <span>Tags:</span>
-        <!-- role="list" needed so that `list-style: none` in Safari doesn't remove the list semantics -->
-        <ul class="d-inline list-inline" role="list">
           
-          <li class="list-inline-item">
-            <a href="http://localhost:4000/tags#esp32">esp32</a>
-          </li>
           
-          <li class="list-inline-item">
-            <a href="http://localhost:4000/tags#buttons">buttons</a>
-          </li>
+          <a class="pl-primary" href="/2026-06-26-Submarine-Game/">Read write-up →</a>
           
-        </ul>
+        
+        
+          <a class="pl-ghost" href="https://www.roblox.com/games/116249915401730/Submarine-Game" target="_blank" rel="noopener">Live / Demo</a>
+        
+        
       </div>
-      
+    </div>
 
-    </article>
-  </li>
+  </div>
   
-  <li class="post-preview">
-    <article>
-      
+  <div class="project-card">
+
+    
+      <div class="project-thumb" style="background-image: url('/assets/img/takt-thumb.png');"></div>
+    
+
+    <div class="project-body">
+      <h3>TAKT</h3>
 
       
-
-      <a href="http://localhost:4000/2024-01-10-ESP-Chat-Server/">
-        <h2 class="post-title">ESP Chat server</h2>
-
-        
-          <h3 class="post-subtitle">
-          A chat server I host using the esp32
-          </h3>
-        
-      </a>
-
-      
-        <span>By <strong>Aaditya Bhave</strong></span>
-      
-      <p class="post-meta">
-        
-        Posted on January 10, 2024
-      </p>
-
-      
-      <div class="post-image post-image-small">
-        <a href="http://localhost:4000/2024-01-10-ESP-Chat-Server/" aria-label="Thumbnail">
-          <img src="http://localhost:4000/assets/img/messageicon.jpg" alt="Post thumbnail">
-        </a>
+      <div class="project-tags">
+        <span>React Native</span><span>Expo</span><span>Mobile</span><span>Health</span>
       </div>
       
 
-      
-      
-      <div class="post-image post-image-short">
-        <a href="http://localhost:4000/2024-01-10-ESP-Chat-Server/" aria-label="Thumbnail">
-          <img src="http://localhost:4000/assets/img/messageicon.jpg" alt="Post thumbnail">
-        </a>
-      </div>
-      
+      <p>My first mobile app. Feel your pulse, tap the screen, and it works out your heart rate with real signal cleanup (skipped-beat detection, outlier removal). Plus a guided-breathing stress mode. Built with React Native and Expo.</p>
 
-      <div class="post-entry">
+      <div class="project-links">
         
-        
-
-        
-        
-          <a href="http://localhost:4000/2024-01-10-ESP-Chat-Server/" class="post-read-more">[Read&nbsp;More]</a>
-        
-      </div>
-      
-
-      
-      <div class="blog-tags">
-        <span>Tags:</span>
-        <!-- role="list" needed so that `list-style: none` in Safari doesn't remove the list semantics -->
-        <ul class="d-inline list-inline" role="list">
           
-          <li class="list-inline-item">
-            <a href="http://localhost:4000/tags#esp32">esp32</a>
-          </li>
           
-          <li class="list-inline-item">
-            <a href="http://localhost:4000/tags#webserver">webserver</a>
-          </li>
+          <a class="pl-primary" href="/2026-07-10-TAKT/">Read write-up →</a>
           
-        </ul>
+        
+        
+        
       </div>
-      
+    </div>
 
-    </article>
-  </li>
+  </div>
   
-  <li class="post-preview">
-    <article>
-      
+  <div class="project-card">
+
+    
+      <div class="project-thumb" style="background-image: url('/assets/img/studypages-thumb.png');"></div>
+    
+
+    <div class="project-body">
+      <h3>StudyPages</h3>
 
       
-
-      <a href="http://localhost:4000/2023-10-08-Prime-Miner-Optimization/">
-        <h2 class="post-title">Optimized prime miner</h2>
-
-        
-          <h3 class="post-subtitle">
-          My Take on Optimization
-          </h3>
-        
-      </a>
-
-      
-        <span>By <strong>Aaditya Bhave</strong></span>
-      
-      <p class="post-meta">
-        
-        Posted on October 8, 2023
-      </p>
-
-      
-      <div class="post-image post-image-small">
-        <a href="http://localhost:4000/2023-10-08-Prime-Miner-Optimization/" aria-label="Thumbnail">
-          <img src="http://localhost:4000/assets/img/prime2.png" alt="Post thumbnail">
-        </a>
+      <div class="project-tags">
+        <span>Python</span><span>AI</span><span>Desktop App</span><span>Cloudflare</span>
       </div>
       
 
-      
-      
-      <div class="post-image post-image-short">
-        <a href="http://localhost:4000/2023-10-08-Prime-Miner-Optimization/" aria-label="Thumbnail">
-          <img src="http://localhost:4000/assets/img/prime2.png" alt="Post thumbnail">
-        </a>
-      </div>
-      
+      <p>A Windows desktop app that turns any topic into a rich, interactive study page, headings, charts, timelines, quizzes and more. Built on a typed block-renderer system with a Cloudflare Worker proxying to Gemini.</p>
 
-      <div class="post-entry">
+      <div class="project-links">
         
-        
-
-        
-        
-          <a href="http://localhost:4000/2023-10-08-Prime-Miner-Optimization/" class="post-read-more">[Read&nbsp;More]</a>
-        
-      </div>
-      
-
-      
-      <div class="blog-tags">
-        <span>Tags:</span>
-        <!-- role="list" needed so that `list-style: none` in Safari doesn't remove the list semantics -->
-        <ul class="d-inline list-inline" role="list">
           
-          <li class="list-inline-item">
-            <a href="http://localhost:4000/tags#DSA">DSA</a>
-          </li>
           
-          <li class="list-inline-item">
-            <a href="http://localhost:4000/tags#optimization">optimization</a>
-          </li>
+          <a class="pl-primary" href="/2026-05-10-StudyPages/">Read write-up →</a>
           
-        </ul>
+        
+        
+        
       </div>
-      
+    </div>
 
-    </article>
-  </li>
+  </div>
   
-  <li class="post-preview">
-    <article>
-      
+  <div class="project-card">
+
+    
+      <div class="project-thumb" style="background-image: url('/assets/img/realsteel-thumb.png');"></div>
+    
+
+    <div class="project-body">
+      <h3>Real Steel Voice Boxing</h3>
 
       
-
-      <a href="http://localhost:4000/2023-08-12-Tug-of-war-game/">
-        <h2 class="post-title">Tug of war game</h2>
-
-        
-          <h3 class="post-subtitle">
-          A button dexterity game
-          </h3>
-        
-      </a>
-
-      
-        <span>By <strong>Aaditya Bhave</strong></span>
-      
-      <p class="post-meta">
-        
-        Posted on August 12, 2023
-      </p>
-
-      
-      <div class="post-image post-image-small">
-        <a href="http://localhost:4000/2023-08-12-Tug-of-war-game/" aria-label="Thumbnail">
-          <img src="http://localhost:4000/assets/img/gimme.jpg" alt="Post thumbnail">
-        </a>
+      <div class="project-tags">
+        <span>Python</span><span>Voice</span><span>Gaming</span><span>Vosk</span>
       </div>
       
 
-      
-      
-      <div class="post-image post-image-short">
-        <a href="http://localhost:4000/2023-08-12-Tug-of-war-game/" aria-label="Thumbnail">
-          <img src="http://localhost:4000/assets/img/gimme.jpg" alt="Post thumbnail">
-        </a>
-      </div>
-      
+      <p>A Python voice controller that lets me box in a Real Steel Roblox game by shouting commands. Offline speech recognition mapped to punches, modifiers and combos, all tuned for near-instant response. Pure childhood fun.</p>
 
-      <div class="post-entry">
+      <div class="project-links">
         
-        
-
-        
-        
-          <a href="http://localhost:4000/2023-08-12-Tug-of-war-game/" class="post-read-more">[Read&nbsp;More]</a>
-        
-      </div>
-      
-
-      
-      <div class="blog-tags">
-        <span>Tags:</span>
-        <!-- role="list" needed so that `list-style: none` in Safari doesn't remove the list semantics -->
-        <ul class="d-inline list-inline" role="list">
           
-          <li class="list-inline-item">
-            <a href="http://localhost:4000/tags#esp32">esp32</a>
-          </li>
           
-          <li class="list-inline-item">
-            <a href="http://localhost:4000/tags#webserver">webserver</a>
-          </li>
+          <a class="pl-primary" href="/2026-02-14-RealSteel-Voice/">Read write-up →</a>
           
-        </ul>
+        
+        
+        
+          <a class="pl-ghost" href="https://github.com/aaditya07creates/real-steel-voice-boxing" target="_blank" rel="noopener">GitHub</a>
+        
       </div>
-      
+    </div>
 
-    </article>
-  </li>
+  </div>
   
-</ul>
+  <div class="project-card">
 
+    
+      <div class="project-thumb" style="background-image: url('/assets/img/storage-thumb.png');"></div>
+    
 
+    <div class="project-body">
+      <h3>Constellation</h3>
+
+      
+      <div class="project-tags">
+        <span>Startup</span><span>Cryptography</span><span>Distributed Systems</span>
+      </div>
+      
+
+      <p>My most ambitious project. A plan for a cloud with no data center, scattering encrypted file shards across millions of phones worldwide, like stars in one pattern. Months of unit-economics research, real cryptography, and data-residency law. Paused, not dead.</p>
+
+      <div class="project-links">
+        
+          
+          
+          <a class="pl-primary" href="/2026-04-15-Decentralized-Storage/">Read write-up →</a>
+          
+        
+        
+        
+      </div>
+    </div>
+
+  </div>
+  
+  <div class="project-card">
+
+    
+      <div class="project-thumb" style="background-image: url('/assets/img/messageicon.jpg');"></div>
+    
+
+    <div class="project-body">
+      <h3>ESP Chat Server</h3>
+
+      
+      <div class="project-tags">
+        <span>ESP32</span><span>Web Server</span><span>Networking</span>
+      </div>
+      
+
+      <p>An offline live-chat server hosted on an ESP32 so neighbours can stay in contact during power cuts and internet outages, no internet required.</p>
+
+      <div class="project-links">
+        
+          
+          
+          <a class="pl-primary" href="/2024-01-10-ESP-Chat-Server/">Read write-up →</a>
+          
+        
+        
+        
+          <a class="pl-ghost" href="https://github.com/aaditya07creates/esp32-chat-server" target="_blank" rel="noopener">GitHub</a>
+        
+      </div>
+    </div>
+
+  </div>
+  
+  <div class="project-card">
+
+    
+      <div class="project-thumb" style="background-image: url('/assets/img/nice.png');"></div>
+    
+
+    <div class="project-body">
+      <h3>Hand Gesture Control</h3>
+
+      
+      <div class="project-tags">
+        <span>OpenCV</span><span>Python</span><span>Computer Vision</span>
+      </div>
+      
+
+      <p>A Python + OpenCV program that tracks hand gestures through the webcam to control the laptop touch-free, Iron Man style.</p>
+
+      <div class="project-links">
+        
+          
+          
+          <a class="pl-primary" href="/2024-10-15-handgestures/">Read write-up →</a>
+          
+        
+        
+        
+          <a class="pl-ghost" href="https://github.com/aaditya07creates/hand-gesture-control" target="_blank" rel="noopener">GitHub</a>
+        
+      </div>
+    </div>
+
+  </div>
+  
+  <div class="project-card">
+
+    
+      <div class="project-thumb" style="background-image: url('/assets/img/prime2.png');"></div>
+    
+
+    <div class="project-body">
+      <h3>Optimized Prime Miner</h3>
+
+      
+      <div class="project-tags">
+        <span>DSA</span><span>Optimization</span><span>C++</span>
+      </div>
+      
+
+      <p>A deep-dive into optimizing primality testing, starting from the Square Root Theorem and pushing to compute primes as fast as possible.</p>
+
+      <div class="project-links">
+        
+          
+          
+          <a class="pl-primary" href="/2023-10-08-Prime-Miner-Optimization/">Read write-up →</a>
+          
+        
+        
+        
+          <a class="pl-ghost" href="https://github.com/aaditya07creates/prime-miner" target="_blank" rel="noopener">GitHub</a>
+        
+      </div>
+    </div>
+
+  </div>
+  
+  <div class="project-card">
+
+    
+      <div class="project-thumb" style="background-image: url('/assets/img/gimme.jpg');"></div>
+    
+
+    <div class="project-body">
+      <h3>Tug of War Game</h3>
+
+      
+      <div class="project-tags">
+        <span>ESP32</span><span>Web Server</span><span>Games</span>
+      </div>
+      
+
+      <p>A two-player button-dexterity game on the ESP32 with individual controllers and a live web interface for spectators.</p>
+
+      <div class="project-links">
+        
+          
+          
+          <a class="pl-primary" href="/2023-08-12-Tug-of-war-game/">Read write-up →</a>
+          
+        
+        
+        
+          <a class="pl-ghost" href="https://github.com/aaditya07creates/esp32-tug-of-war" target="_blank" rel="noopener">GitHub</a>
+        
+      </div>
+    </div>
+
+  </div>
+  
+</div>
+
+</div>
 
 
       
@@ -908,7 +760,7 @@
         Aaditya Bhave
         &nbsp;&bull;&nbsp;
       
-      2025
+      2026
 
       
 

@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     
-    <title>Aaditya&apos;s Space</title>
+    <title>Random Access Memories</title>
     
     
     <description>This website is a virtual proof that I&apos;m awesome</description>
@@ -12,25 +12,80 @@
     
     
       <item>
-        <title>Tech Diplomacy</title>
+        <title>Building PromptEnhance</title>
         <description>
-          Tech Diplomacy; Bridging The Tech Divide - 
-          Tech Diplomacy: Bridging the Tech Divide Introduction I am passionate about tech diplomacy because, with emerging technology, I believe it is crucial for all of us to navigate the complexities of our increasingly interconnected world. Technology is rapidly transforming societies and economies, presenting both unprecedented opportunities and significant challenges. What...
+          How I shipped my first real product — an extension, a payment system, and a company - 
+          The thing I actually shipped For most of my projects the goal has been “make it work.” This time the goal was “make something people would actually pay for,” and that changes everything. PromptEnhance is a Chrome extension that turns a rough, lazy prompt into a properly engineered one with...
         </description>
-        <pubDate>Mon, 03 Feb 2025 00:00:00 -0500</pubDate>
-        <link>http://localhost:4000/2025-02-03-Tech-Diplomacy/</link>
-        <guid isPermaLink="true">http://localhost:4000/2025-02-03-Tech-Diplomacy/</guid>
+        <pubDate>Mon, 13 Jul 2026 00:00:00 -0400</pubDate>
+        <link>http://localhost:4000/2026-07-13-PromptEnhance/</link>
+        <guid isPermaLink="true">http://localhost:4000/2026-07-13-PromptEnhance/</guid>
       </item>
     
       <item>
-        <title>Will China beat US in the A.I. race?</title>
+        <title>TAKT</title>
         <description>
-          The race for dominance in artificial intelligence - 
-          Will China Beat the US in AI? Introduction According to NPR, we are having a Sputnik moment, with the release of a chatbot by DeepSeek (Ruwitch, 2025). US stocks fell, losing billions. Interestingly, it has open-sourced its model. So, what does it mean to the AI community? What does it...
+          My first mobile app — feel your pulse, tap the screen, know your heart rate - 
+          Why I built it Sometimes my heart just starts racing, and I never had a good way to actually check what it was doing. I don’t own a smartwatch, and reaching for one every time isn’t realistic anyway. But I always have my phone. So I built TAKT: you find...
         </description>
-        <pubDate>Thu, 30 Jan 2025 00:00:00 -0500</pubDate>
-        <link>http://localhost:4000/2025-01-30-Will-China-beat-US-in-the-A.I.-race/</link>
-        <guid isPermaLink="true">http://localhost:4000/2025-01-30-Will-China-beat-US-in-the-A.I.-race/</guid>
+        <pubDate>Fri, 10 Jul 2026 00:00:00 -0400</pubDate>
+        <link>http://localhost:4000/2026-07-10-TAKT/</link>
+        <guid isPermaLink="true">http://localhost:4000/2026-07-10-TAKT/</guid>
+      </item>
+    
+      <item>
+        <title>A co-op submarine game</title>
+        <description>
+          A Roblox crew sim where nobody can run the whole boat alone — my biggest project yet - 
+          The idea: make people actually crew a submarine Most games let one player do everything. I wanted the opposite. This is a co-op underwater submarine simulator on Roblox where a crew shares one submarine and has to actually run it together — walking up to physical consoles for depth, speed,...
+        </description>
+        <pubDate>Fri, 26 Jun 2026 00:00:00 -0400</pubDate>
+        <link>http://localhost:4000/2026-06-26-Submarine-Game/</link>
+        <guid isPermaLink="true">http://localhost:4000/2026-06-26-Submarine-Game/</guid>
+      </item>
+    
+      <item>
+        <title>OPERATOR</title>
+        <description>
+          A talk-to-your-computer AI agent I built before the big labs shipped theirs - 
+          Talking to my whole computer OPERATOR is an AI assistant for Windows that actually does things. You talk to it in plain English and it opens apps, digs through your files, types on your keyboard, manages windows and processes, searches the web, drives your real Chrome, and remembers context across...
+        </description>
+        <pubDate>Fri, 05 Jun 2026 00:00:00 -0400</pubDate>
+        <link>http://localhost:4000/2026-06-05-Operator/</link>
+        <guid isPermaLink="true">http://localhost:4000/2026-06-05-Operator/</guid>
+      </item>
+    
+      <item>
+        <title>StudyPages</title>
+        <description>
+          A desktop app that turns any topic into a rich, interactive study page - 
+          Turning any topic into a proper lesson When you ask an AI to teach you something, you usually get a wall of text. StudyPages was my attempt at something better: you type in any topic, and it builds you a full, scrollable, visual study page, with headings, callouts, tables, charts,...
+        </description>
+        <pubDate>Sun, 10 May 2026 00:00:00 -0400</pubDate>
+        <link>http://localhost:4000/2026-05-10-StudyPages/</link>
+        <guid isPermaLink="true">http://localhost:4000/2026-05-10-StudyPages/</guid>
+      </item>
+    
+      <item>
+        <title>Constellation</title>
+        <description>
+          A plan to scatter the world&apos;s files, encrypted, across millions of phones - 
+          The most ambitious thing I’ve ever attempted Every so often I get an idea that’s clearly too big for me, and instead of scaring me off, that’s exactly what makes me want it. Constellation was that idea. It was a plan for a cloud storage company with no data center...
+        </description>
+        <pubDate>Wed, 15 Apr 2026 00:00:00 -0400</pubDate>
+        <link>http://localhost:4000/2026-04-15-Decentralized-Storage/</link>
+        <guid isPermaLink="true">http://localhost:4000/2026-04-15-Decentralized-Storage/</guid>
+      </item>
+    
+      <item>
+        <title>Boxing a robot with my voice</title>
+        <description>
+          A Real Steel voice controller, because I wanted to fight like the movie - 
+          This one is pure childhood Real Steel is one of those movies that basically wired my brain as a kid. Giant boxing robots, controlled by a human, fighting it out in a ring. It’s a big part of why I fell in love with robotics in the first place, so...
+        </description>
+        <pubDate>Sat, 14 Feb 2026 00:00:00 -0400</pubDate>
+        <link>http://localhost:4000/2026-02-14-RealSteel-Voice/</link>
+        <guid isPermaLink="true">http://localhost:4000/2026-02-14-RealSteel-Voice/</guid>
       </item>
     
       <item>
@@ -39,7 +94,7 @@
           Seeing everything as terminator does - 
           INTRODUCTION The terminator is a robot from a movie that time travels into the past to save someone. I love watching robot movies and got goosebumbs after watching terminator. I decided to make a device that can let me see things like terminator does. Basic idea The ideas was to...
         </description>
-        <pubDate>Mon, 18 Nov 2024 00:00:00 -0500</pubDate>
+        <pubDate>Mon, 18 Nov 2024 00:00:00 -0400</pubDate>
         <link>http://localhost:4000/2024-11-18-Terminator-visioncopy/</link>
         <guid isPermaLink="true">http://localhost:4000/2024-11-18-Terminator-visioncopy/</guid>
       </item>
@@ -50,7 +105,7 @@
           Using hand gestures to control my laptop - 
           Introduction I was going through my laptop settings one day and found and option for eyetracking, sadly it was disabled as my hardware wasn’t compattible. So I decided to make my own. Instead of eye tracking I felt that hand gestures would be much cooler and make me feel like...
         </description>
-        <pubDate>Tue, 15 Oct 2024 00:00:00 -0500</pubDate>
+        <pubDate>Tue, 15 Oct 2024 00:00:00 -0400</pubDate>
         <link>http://localhost:4000/2024-10-15-handgestures/</link>
         <guid isPermaLink="true">http://localhost:4000/2024-10-15-handgestures/</guid>
       </item>
@@ -58,10 +113,10 @@
       <item>
         <title>Quotelet</title>
         <description>
-          An automated youtube A.I. channel - 
-          An automated A.I. channel For the past year we’ve seen a lot of A.I. generated content on youtube. Now there is a difference between A.I. generated and automation we must understand first, A.I. (artificial intelligence) generated content is the content A.I. thinks of, for example a script for a video,...
+          A YouTube channel that runs itself - 
+          A channel that runs itself Quotelet is a YouTube Shorts channel that generates and posts its own videos, with almost no input from me once it’s set up. You run one Python script, tell it how many videos you want, and it writes them, builds them, and uploads them straight...
         </description>
-        <pubDate>Fri, 27 Sep 2024 00:00:00 -0500</pubDate>
+        <pubDate>Fri, 27 Sep 2024 00:00:00 -0400</pubDate>
         <link>http://localhost:4000/2024-09-27-Quotelet/</link>
         <guid isPermaLink="true">http://localhost:4000/2024-09-27-Quotelet/</guid>
       </item>
@@ -72,7 +127,7 @@
           My own customisable bluetooth deck - 
           ESP32 MACROPAD A macropad is a physical device with buttons that are mapped to some customizable functions. It is used to enhance productivity, for navigating software, playing games or all of these at once. I have made my own version of it using the blekeyboard library and the esp32. Components...
         </description>
-        <pubDate>Thu, 13 Jun 2024 00:00:00 -0500</pubDate>
+        <pubDate>Thu, 13 Jun 2024 00:00:00 -0400</pubDate>
         <link>http://localhost:4000/2024-06-13-esp32BT-macropad/</link>
         <guid isPermaLink="true">http://localhost:4000/2024-06-13-esp32BT-macropad/</guid>
       </item>
@@ -83,7 +138,7 @@
           A chat server I host using the esp32 - 
           Introduction My goal was to create a live-chat server that doesn’t require access to the internet. Phones and computers can connect to the server directly without having internet access, I wanted to create a chat server to help people from my neighbourhood be in contact with each other during power-cuts...
         </description>
-        <pubDate>Wed, 10 Jan 2024 00:00:00 -0500</pubDate>
+        <pubDate>Wed, 10 Jan 2024 00:00:00 -0400</pubDate>
         <link>http://localhost:4000/2024-01-10-ESP-Chat-Server/</link>
         <guid isPermaLink="true">http://localhost:4000/2024-01-10-ESP-Chat-Server/</guid>
       </item>
@@ -94,7 +149,7 @@
           My Take on Optimization - 
           Optimized prime miner I used the Square Root Theorem for Primality Testing as the base program. It works by taking the new number’s square root and checking if prime numbers less than the root can divide it. If they cannot, it is prime. The program’s goal is to compute as...
         </description>
-        <pubDate>Sun, 08 Oct 2023 00:00:00 -0500</pubDate>
+        <pubDate>Sun, 08 Oct 2023 00:00:00 -0400</pubDate>
         <link>http://localhost:4000/2023-10-08-Prime-Miner-Optimization/</link>
         <guid isPermaLink="true">http://localhost:4000/2023-10-08-Prime-Miner-Optimization/</guid>
       </item>
@@ -105,7 +160,7 @@
           A button dexterity game - 
           Tug of war game with esp32 The tug of war game is a button dexterity game. A 2 player game with induidual controllers, that you can spectate through a web interface. Overview of the game The goal of the game is simple: Player 1 and Player 2 each press their...
         </description>
-        <pubDate>Sat, 12 Aug 2023 00:00:00 -0500</pubDate>
+        <pubDate>Sat, 12 Aug 2023 00:00:00 -0400</pubDate>
         <link>http://localhost:4000/2023-08-12-Tug-of-war-game/</link>
         <guid isPermaLink="true">http://localhost:4000/2023-08-12-Tug-of-war-game/</guid>
       </item>

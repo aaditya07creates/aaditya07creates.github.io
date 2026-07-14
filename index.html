@@ -1,5 +1,60 @@
 ---
-layout: home
+layout: page
+full-width: true
 title: Random Access Memories
-subtitle: A space where I share my projects, ideas and opinions.
+subtitle: Everything I build, and everything it teaches me.
+pun: true
+header-extra:
+  - home-hero.html
 ---
+
+<div class="home-wrap">
+
+<p class="section-eyebrow">Projects &amp; Write-ups</p>
+<p class="section-intro">A collection of things I've made — hardware, software, and the odd experiment. Click any card for the full story, photos, and code.</p>
+
+{% comment %} Cards render in the exact order they appear in _data/projects.yml {% endcomment %}
+{% assign ordered = site.data.projects %}
+
+<div class="projects-grid">
+  {% for project in ordered %}
+  <div class="project-card">
+
+    {% if project.image %}
+      <div class="project-thumb" style="background-image: url('{{ project.image | relative_url }}');"></div>
+    {% else %}
+      <div class="project-thumb no-img" data-emoji="{{ project.emoji | default: '🛠️' }}"></div>
+    {% endif %}
+
+    <div class="project-body">
+      <h3>{{ project.title }}</h3>
+
+      {% if project.tags %}
+      <div class="project-tags">
+        {% for tag in project.tags %}<span>{{ tag }}</span>{% endfor %}
+      </div>
+      {% endif %}
+
+      <p>{{ project.description }}</p>
+
+      <div class="project-links">
+        {% if project.post %}
+          {% assign match = site.posts | where: "title", project.post | first %}
+          {% if match %}
+          <a class="pl-primary" href="{{ match.url | relative_url }}">Read write-up →</a>
+          {% endif %}
+        {% endif %}
+        {% if project.demo %}
+          <a class="pl-ghost" href="{{ project.demo }}" target="_blank" rel="noopener">Live / Demo</a>
+        {% endif %}
+        {% if project.github %}
+          <a class="pl-ghost" href="{{ project.github }}" target="_blank" rel="noopener">GitHub</a>
+        {% endif %}
+      </div>
+    </div>
+
+  </div>
+  {% endfor %}
+</div>
+
+</div>

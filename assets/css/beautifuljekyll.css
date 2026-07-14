@@ -557,54 +557,9 @@ footer .footer-custom-content {
 
 
 }
-.posts-list {
-  display: grid;
-  /* grid-template-columns: repeat(2, 1fr); This will show 2 cards per row */
-   /* Responsive grid layout */
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
-  gap: 20px; /* Adjust spacing between posts */
-  margin: 20px auto; /* Center the grid container with margin */
-  padding: 0;
-  list-style: none;
-  max-width: 1200px; /* Limit the container width */
-  background-color: #f8f9fa; /* Light gray background for the list container */
-  border-radius: 10px; /* Smooth rounded corners */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  padding: 20px; /* Add padding inside the container */
-}
-
-/* Individual post styling */
-.posts-list > li {
-  background-color: #ffffff; /* White background for each post */
-  padding: 15px; /* Add padding inside each post */
-  border-radius: 8px; /* Rounded corners for posts */
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
-}
-
-/* Hover effect for posts */
-.posts-list > li:hover {
-  transform: translateY(-5px); /* Slight lift on hover */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
-}
-
-/* Text styling inside posts */
-.posts-list > li h2,
-.posts-list > li p {
-  color: #333333; /* Dark gray text for readability */
-  margin: 0;
-}
-
-/* Adjust spacing for headings and paragraphs */
-.posts-list > li h2 {
-  margin-bottom: 10px; /* Add space below heading */
-  font-size: 1.25rem; /* Slightly larger font for headings */
-}
-
-.posts-list > li p {
-  font-size: 1rem; /* Regular paragraph size */
-  line-height: 1.5; /* Improve readability */
-}
+/* Feed grid + post cards are fully styled in assets/css/custom.css
+   (the previous experimental .posts-list / .posts-list > li rules were
+   removed — they added the gray panel and inner boxes). */
 
 @media (min-width: 1000px) {
   .container, .container-md, .container-sm {
@@ -619,24 +574,8 @@ footer .footer-custom-content {
   overflow: hidden;
   
 } */
-.post-preview {
-  /* flex: 0 1 calc(50% - 20px); /* Adjust the width of each post */
-  /* box-sizing: border-box; */ 
-
-    /* trial from chatgpt */
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 15px;
-  background: #f9f9f9;
-
-
-}
-.post-preview article {
-  border: 1px solid #ddd; /* Optional: Add border for clarity */
-  padding: 10px;
-  background: #fff;
-  border-radius: 5px;
-}
+/* .post-preview / .post-preview article experimental rules removed —
+   card styling now lives in assets/css/custom.css */
 .post-image img {
   max-width: 100%;
   height: auto;

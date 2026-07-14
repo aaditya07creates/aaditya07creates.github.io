@@ -1,0 +1,117 @@
+# ============================================================================
+#  Projects showcase — edit this file to add / change project cards.
+#  Cards appear on the home page in THIS order (top to bottom).
+#  Fields:
+#    title       (required)  Card title
+#    description (required)  1–3 sentence blurb
+#    emoji                   Shown if no `image` is set (fallback tile)
+#    image                   Path to a thumbnail, e.g. /assets/img/foo.png
+#    tags        [list]      Small pills under the title
+#    post                    EXACT title of a blog post -> auto-links to it
+#    github                  Full GitHub URL (optional)
+#    demo                    Any external link: live demo, store, game, etc.
+# ============================================================================
+
+- title: PromptEnhance
+  description: My first real product. A Chrome extension that turns rough prompts into professionally engineered ones in one click, inside any AI. Built with Cloudflare and Stripe, live with a free tier and paid plans.
+  image: /assets/img/promptenhance-thumb.png
+  tags: [AI, Chrome Extension, Cloudflare, Stripe]
+  post: Building PromptEnhance
+  demo: https://chromewebstore.google.com/detail/promptenhance/ajfnkdejpiigjhedggbinfpnnaboilho
+
+- title: OPERATOR
+  description: A talk-to-your-computer AI agent for Windows, built before the big labs shipped theirs. Natural-language tool-calling to control files, apps, the keyboard and your real Chrome, with risk-tiered safety, a tiered memory system, and offline voice. Open source.
+  image: /assets/img/operator-thumb.png
+  tags: [AI, Agents, Python, Open Source]
+  post: OPERATOR
+  github: https://github.com/aaditya07creates/Operator
+
+- title: ESP32 Macropad
+  description: A custom Bluetooth macro deck built on an ESP32. Programmable keys that trigger shortcuts, launch apps, and control software.
+  image: /assets/img/macropadthumbnailimg.jpg
+  tags: [ESP32, Bluetooth, Hardware]
+  post: ESP32 macropad
+  github: https://github.com/aaditya07creates/esp32-macropad
+
+- title: Quotelet
+  description: A fully automated, AI-assisted YouTube channel that generates and publishes short-form quote videos with minimal human intervention.
+  image: /assets/img/Quotelet_logo.png
+  tags: [AI, Python, YouTube]
+  post: Quotelet
+  demo: https://www.youtube.com/@Quotelet1/shorts
+  github: https://github.com/aaditya07creates/quotelet
+
+- title: Terminator Vision
+  description: A Raspberry Pi wearable that overlays an object-detection HUD on a live camera feed, seeing the world the way the Terminator does.
+  image: /assets/img/terminator-rig.jpg
+  tags: [Raspberry Pi, OpenCV, Computer Vision]
+  post: Terminator Vision
+  github: https://github.com/aaditya07creates/terminator-vision
+
+- title: Co-op Submarine Game
+  description: My biggest project. A co-op submarine simulator on Roblox where a crew shares one boat and mans the consoles surrounding them. Researched from real subs, picked up by the Roblox algorithm, and a deep lesson in game design and clean architecture.
+  image: /assets/img/submarine-thumb.png
+  tags: [Roblox, Game Dev, Lua, Architecture]
+  post: A co-op submarine game
+  demo: https://www.roblox.com/games/116249915401730/Submarine-Game
+
+- title: TAKT
+  description: My first mobile app. Feel your pulse, tap the screen, and it works out your heart rate with real signal cleanup (skipped-beat detection, outlier removal). Plus a guided-breathing stress mode. Built with React Native and Expo.
+  image: /assets/img/takt-thumb.png
+  tags: [React Native, Expo, Mobile, Health]
+  post: TAKT
+
+- title: StudyPages
+  description: A Windows desktop app that turns any topic into a rich, interactive study page, headings, charts, timelines, quizzes and more. Built on a typed block-renderer system with a Cloudflare Worker proxying to Gemini.
+  image: /assets/img/studypages-thumb.png
+  tags: [Python, AI, Desktop App, Cloudflare]
+  post: StudyPages
+
+- title: Real Steel Voice Boxing
+  description: A Python voice controller that lets me box in a Real Steel Roblox game by shouting commands. Offline speech recognition mapped to punches, modifiers and combos, all tuned for near-instant response. Pure childhood fun.
+  image: /assets/img/realsteel-thumb.png
+  tags: [Python, Voice, Gaming, Vosk]
+  post: Boxing a robot with my voice
+  github: https://github.com/aaditya07creates/real-steel-voice-boxing
+
+- title: Constellation
+  description: My most ambitious project. A plan for a cloud with no data center, scattering encrypted file shards across millions of phones worldwide, like stars in one pattern. Months of unit-economics research, real cryptography, and data-residency law. Paused, not dead.
+  image: /assets/img/storage-thumb.png
+  tags: [Startup, Cryptography, Distributed Systems]
+  post: Constellation
+
+- title: ESP Chat Server
+  description: An offline live-chat server hosted on an ESP32 so neighbours can stay in contact during power cuts and internet outages, no internet required.
+  image: /assets/img/messageicon.jpg
+  tags: [ESP32, Web Server, Networking]
+  post: ESP Chat server
+  github: https://github.com/aaditya07creates/esp32-chat-server
+
+- title: Hand Gesture Control
+  description: A Python + OpenCV program that tracks hand gestures through the webcam to control the laptop touch-free, Iron Man style.
+  image: /assets/img/nice.png
+  tags: [OpenCV, Python, Computer Vision]
+  post: Hand gestures
+  github: https://github.com/aaditya07creates/hand-gesture-control
+
+- title: Optimized Prime Miner
+  description: A deep-dive into optimizing primality testing, starting from the Square Root Theorem and pushing to compute primes as fast as possible.
+  image: /assets/img/prime2.png
+  tags: [DSA, Optimization, C++]
+  post: Optimized prime miner
+  github: https://github.com/aaditya07creates/prime-miner
+
+- title: Tug of War Game
+  description: A two-player button-dexterity game on the ESP32 with individual controllers and a live web interface for spectators.
+  image: /assets/img/gimme.jpg
+  tags: [ESP32, Web Server, Games]
+  post: Tug of war game
+  github: https://github.com/aaditya07creates/esp32-tug-of-war
+
+# --- Add your new projects below ---
+# - title: My Awesome New Project
+#   description: What it does and why it's cool.
+#   emoji: "⚡"
+#   tags: [Tag1, Tag2]
+#   github: https://github.com/aaditya07creates/your-repo
+#   demo: https://example.com
