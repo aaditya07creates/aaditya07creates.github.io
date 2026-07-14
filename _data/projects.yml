@@ -66,6 +66,7 @@
   image: /assets/img/studypages-thumb.png
   tags: [Python, AI, Desktop App, Cloudflare]
   post: StudyPages
+  github: https://github.com/aaditya07creates/studypages
 
 - title: Real Steel Voice Boxing
   description: A Python voice controller that lets me box in a Real Steel Roblox game by shouting commands. Offline speech recognition mapped to punches, modifiers and combos, all tuned for near-instant response. Pure childhood fun.
