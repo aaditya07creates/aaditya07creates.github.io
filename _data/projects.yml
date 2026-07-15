@@ -12,6 +12,13 @@
 #    demo                    Any external link: live demo, store, game, etc.
 # ============================================================================
 
+- title: ttdbg
+  description: A time-travel debugger for Python. Record a run once, then explore it like a video, step backwards, scrub a timeline, and ask a variable when it last changed. Built on Python 3.12's sys.monitoring, pure stdlib, no C extension. Took the recorder from 247x overhead down to something usable.
+  image: /assets/img/ttdbg-thumb.png
+  tags: [Python, Debugging, Tools, Systems]
+  post: ttdbg
+  github: https://github.com/aaditya07creates/ttdbg
+
 - title: PromptEnhance
   description: My first real product. A Chrome extension that turns rough prompts into professionally engineered ones in one click, inside any AI. Built with Cloudflare and Stripe, live with a free tier and paid plans.
   image: /assets/img/promptenhance-thumb.png
